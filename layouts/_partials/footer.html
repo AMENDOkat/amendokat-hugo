@@ -1,0 +1,10 @@
+<span><b>my socials:</b></span>
+<span>
+    <ul>
+        {{ range .Site.Menus.footerlinks }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+    </ul>
+</span>
+<span>coded by AMENDOKAT with his own two paws &#x1F43E; and a <a href="/site#about-this-site">little help</a>!</span>
+<span><a href="#top">(return to top)</a></span>

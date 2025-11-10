@@ -1,0 +1,46 @@
+<style>
+    .gallery-grid{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 0.2rem;
+        column-gap: 0.5rem;
+        margin: 1rem 0 1rem 0;
+    }
+
+    img{
+        object-fit: contain;
+    }
+</style>
+
+{{ $allimgs := resources.Match "images/artwork/*.png" }}
+{{ $type := .Get "type" }}
+
+{{ if eq $type "all" }}
+<div class="gallery-grid">
+    {{ range $allimgs }}
+    {{ $thumb := .Resize "200x webp q100" }}
+        <a href="{{ .RelPermalink }}">
+            <img src="{{ $thumb.RelPermalink }}" alt="" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" loading="lazy">
+        </a>  
+    {{ end }}
+</div>
+{{ else if eq $type "sample" }}
+<div class="gallery-grid">
+    {{ range first 5 $allimgs }}
+    {{ $thumb := .Resize "200x webp q100" }}
+        <a href="{{ .RelPermalink }}">
+            <img src="{{ $thumb.RelPermalink }}" alt="" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" loading="lazy">
+        </a>      
+    {{ end }}
+</div>
+{{ else if eq $type "latest" }}
+<div class="gallery-grid">
+    {{ range first 1 $allimgs }}
+    {{ $thumb := .Resize "200x webp q100" }}
+        <a href="{{ .RelPermalink }}">
+            <img src="{{ $thumb.RelPermalink }}" alt="" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" loading="lazy">
+        </a>      
+    {{ end }}
+</div>
+{{ end }}

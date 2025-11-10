@@ -1,0 +1,61 @@
+{{ define "main" }}
+<style>    
+.wip{
+    border: 1px solid #fff;
+    margin: 1rem 0 2rem 0;
+}
+
+.wip h2{
+    background-color: yellow;
+    color: #000;
+    margin: 0;
+}
+
+.wip h2::before{
+    content: "⚠️";
+}
+
+.wip img{
+    width: 3.5rem;
+}
+</style>
+
+<div class="main-container">
+    <h1>{{ .Title }}</h1>
+    <hr>
+    <div class="wip">
+        <h2>This site is still under construction! Please be patient!</h2>
+        <img src="/images/wip.png" alt="">
+        <i>Our engineers are hard at work!</i>
+    </div>
+
+    {{ .Content }}
+
+    <h2>Latest post</h2>
+    <ul>
+        {{ range first 1 (where .Site.RegularPages "Section" "posts") }}
+        <li>
+            <a href="{{ .RelPermalink }}">{{ .Date.Format "Jan 02 2006" }} - {{ .LinkTitle }}</a>
+        </li>
+        <i><p><a href="/posts">see more...</a></p></i>
+        {{ end }}
+    </ul>
+
+    <h2>Support me</h2>
+    <p>
+        If you like what I do, be it my art, this website, or you just think I'm so cool it really makes you wanna give me money, you can support me by:
+    </p>
+    <ul>
+        <li>Sending me a one time tip on <a href="https://ko-fi.com/amendokat">ko-fi</a></li>
+        <li>Becoming a supporter on <a href="https://ko-fi.com/amendokat/tiers">ko-fi</a></li>
+        <li>Buying an <a href="https://amendokatcommissions.carrd.co/">art commission</a></li>
+    </ul>
+
+    <h2>Contact me</h2>
+    <p>I don't like being messaged through my social media due to previous issues I've had with internet creeps. If you'd like to contact me for any reason, be it a commission or you wanna tell me your favorite fun facts about Sunni Westbrook, please do so through Discord or E-mail.</p>
+    <ul>
+        <li>discord: <a href="https://discord.com/">amendokat</a></li>
+        <li>e-mail: <a href="mailto:amendokat@gmail.com">amendokat@gmail.com</a></li>
+    </ul>
+</div>
+{{ end }}

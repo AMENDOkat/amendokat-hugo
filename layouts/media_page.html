@@ -1,0 +1,61 @@
+{{ define "main" }}
+<div class="main-container">
+    <h1>{{ .Title }}</h1>
+    <hr>
+   <style>
+    .page-info{
+        text-align: center;
+    }
+
+    .page-info img{
+        margin-top: 0.2rem;
+    }
+
+    .page-info ul{
+        list-style-type: none;
+        background-color: #373737;
+        border: 1px solid var(--grey);
+    }
+
+    .page-info li{
+        margin: 0;
+        padding: 0.5rem 0 0.5rem 0;
+    }
+
+    .page-info li:not(:last-of-type){
+        border-bottom: 1px dotted var(--grey);
+    }
+
+    .page-info b{
+        display: block;
+    }
+
+    .page-info li a:not(:last-of-type){
+        border-right: var(--border-1);
+    }
+
+    .page-info li a{
+        padding: 0 0.5rem 0 0.5rem;
+    }
+</style>
+<div class="page-info">
+    {{ $imgPath :=  printf "images/artwork/%s" .Page.Params.cover }}
+    {{ with resources.Get $imgPath }}<img src="{{ . }}" alt="">{{ end }}
+    <ul>
+        {{ with .Page.Params.title }}<li><b>Title</b> {{ . }}</li>{{ end }}
+        {{ with .Page.Params.created }}<li><b>Created</b> {{ . }}</li>{{ end }}
+        {{ with .Page.Params.description }}<li><b>Description</b> {{ . }}</li>{{ end }}
+        {{ with .Page.Params }}
+        <li>
+            <b>Where to find</b>
+            {{ with .bluesky }}<a href="{{ . }}">bluesky</a>{{ end }}
+            {{ with .tumblr }}<a href="{{ . }}">tumblr</a>{{ end }}
+            {{ with .derpibooru }}<a href="{{ . }}">derpibooru</a>{{ end }}
+        </li>
+        {{ end }}
+    </ul>
+</div>
+{{ .Content }}
+</div>
+{{ end }}
+

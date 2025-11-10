@@ -1,0 +1,10 @@
+<span>AMENDOKAT</span>
+<div class="banner">
+</div>
+<nav>
+    <ul>
+        {{ range .Site.Menus.nav }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+    </ul>
+</nav>

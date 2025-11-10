@@ -1,0 +1,52 @@
+<style>
+    img{
+        object-fit: contain;
+    }
+    
+    .gallery-grid{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 0.2rem;
+        column-gap: 0.5rem;
+        margin: 1rem 0 1rem 0;
+    }
+
+    .page-link{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+</style>
+
+<div class="gallery-grid">
+    {{ $type := .Get "type" }}
+    {{ if eq $type "art_gallery" }}
+        {{ range where .Site.RegularPages ".Params.type" "eq" "artwork"  }}
+        {{ $imgPath :=  printf "images/artwork/%s" .Params.cover }}
+        {{ $img := resources.Get $imgPath }}
+        <div class="page-link">
+            <a href="{{ $img.RelPermalink }}">
+                <img src="{{ ($img.Resize `200x webp q100`).RelPermalink }}" alt="">
+            </a>
+            <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+            <span>{{ .Date | time.Format ":date_medium" }}</span>
+        </div>
+        {{ end }}
+
+    {{ else if eq $type "art_portfolio" }}
+        {{ range where .Site.RegularPages ".Params.portfolio" "eq" true  }}
+        {{ $imgPath :=  printf "images/artwork/%s" .Params.cover }}
+        {{ $img := resources.Get $imgPath }}
+        <div class="page-link">
+            <a href="{{ $img.RelPermalink }}">
+                <img src="{{ ($img.Resize `200x webp q100`).RelPermalink }}" alt="">
+            </a>
+            <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+            <span>{{ .Date | time.Format ":date_medium" }}</span>
+        </div>
+        {{ end }}
+
+    {{ else if eq $type "review" }}
+    {{ end }}
+</div>

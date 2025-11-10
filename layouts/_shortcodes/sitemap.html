@@ -1,0 +1,15 @@
+<h2>Main Pages</h2>
+<ul>
+    {{ range .Site.Menus.nav }}
+    <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+    {{ end }}
+</ul>
+
+<h2>All my Posts</h2>
+<ul>
+    {{ range where .Site.RegularPages "Section" "posts" }}
+    <li>
+        <a href="{{ .RelPermalink }}">{{ .Date.Format "Jan 02 2006" }} - {{ .LinkTitle }}</a>
+    </li>
+    {{ end }}
+</ul>
