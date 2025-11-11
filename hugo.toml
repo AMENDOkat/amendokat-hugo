@@ -4,6 +4,24 @@ title = 'AMENDOKAT'
 
 enableEmoji = true
 
+[taxonomies]
+art_tag = 'art_tags'
+post_tag = 'post_tags'
+
+[permalinks.taxonomy]
+art_tags = '/my_work/art_gallery/tags/'
+post_tags = '/posts/tags/'
+
+[permalinks.term]
+art_tags = '/my_work/art_gallery/tags/:slug'
+post_tags = '/posts/tags/:slug'
+
+[[cascade]]
+title = 'Tags'
+[cascade._target]
+path = '{/art_tags,/post_tags}'
+
+
 [menus]
   [[menus.nav]]
   name = 'home'

@@ -3,7 +3,7 @@
     <h1>{{ .Title }}</h1>
     <hr>
    <style>
-    .page-info{
+    .page-info, .page-controls{
         text-align: center;
     }
 
@@ -37,25 +37,68 @@
     .page-info li a{
         padding: 0 0.5rem 0 0.5rem;
     }
+
+    .page-controls{
+        background-color: #373737;
+        margin: var(--margin);
+        display: flex;
+        justify-content: space-evenly;
+    }
 </style>
+
 <div class="page-info">
-    {{ $imgPath :=  printf "images/artwork/%s" .Page.Params.cover }}
-    {{ with resources.Get $imgPath }}<img src="{{ . }}" alt="">{{ end }}
-    <ul>
-        {{ with .Page.Params.title }}<li><b>Title</b> {{ . }}</li>{{ end }}
-        {{ with .Page.Params.created }}<li><b>Created</b> {{ . }}</li>{{ end }}
-        {{ with .Page.Params.description }}<li><b>Description</b> {{ . }}</li>{{ end }}
-        {{ with .Page.Params }}
-        <li>
-            <b>Where to find</b>
-            {{ with .bluesky }}<a href="{{ . }}">bluesky</a>{{ end }}
-            {{ with .tumblr }}<a href="{{ . }}">tumblr</a>{{ end }}
-            {{ with .derpibooru }}<a href="{{ . }}">derpibooru</a>{{ end }}
-        </li>
+    {{ with .Params }}
+        {{ $alt := .alt }}
+        {{ with resources.GetRemote .cover }}
+            <img src="{{ . }}" alt="{{ $alt }}" width="{{ .Width }}" height="{{ .Height }}">
         {{ end }}
-    </ul>
+        <p>{{ .caption }}</p>
+        <ul>
+            <li>
+                <b>Title</b> 
+                {{ .title }}
+            </li>
+            <li>
+                <b>Created</b> 
+                {{ .created | time.Format ":date_short" }}
+            </li>
+            <li>
+                <b>Where to find</b>
+                {{ with .bluesky }}
+                    <a href="{{ . }}">bluesky</a>
+                {{ end }}
+
+                {{ with .tumblr }}
+                    <a href="{{ . }}">tumblr</a>
+                {{ end }}
+                
+                {{ with .derpibooru }}
+                    <a href="{{ . }}">derpibooru</a>
+                {{ end }}
+            </li>
+            <li>
+                <b>Tags</b>
+                {{ range .tags }}
+                    <a href='{{ "/tags/" | absURL }}{{ . | urlize }}'>{{ . }}</a> 
+                {{ end }}
+            </li>
+        </ul>
+    {{ end }}
 </div>
+
 {{ .Content }}
+
+<div class="page-controls">
+    {{ with .Prev }}
+        <a href="{{ .RelPermalink }}">&#11164; Previous</a>
+    {{ end }}
+     ||
+    {{ with .Next }}
+        <a href="{{ .RelPermalink }}">Next &#11166;</a>
+    {{ end }}
 </div>
+
+</div>
+
 {{ end }}
 

@@ -5,5 +5,5 @@ title: 'My work'
 
 ## My Art
 
-{{< page_gallery type="art_gallery" >}}
-
+### Portfolio 
+To see all of my work visit the [Art Gallery](art_gallery)

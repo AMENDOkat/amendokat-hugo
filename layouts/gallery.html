@@ -1,0 +1,59 @@
+{{ define "main" }}
+<style>
+    img{
+        object-fit: contain;
+    }
+    
+    .gallery-grid{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 0.2rem;
+        column-gap: 1rem;
+        margin: 1rem 0 1rem 0;
+    }
+
+    .page-link{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .page-tags a:not(:last-of-type){
+        border-right: var(--border-1);
+    }
+
+    .page-tags a{
+        padding: 0 0.3rem 0 0.2rem;
+        font-size: 0.7rem;
+    }
+</style>
+
+
+<div class="main-container">
+    <h1>{{ .Title }}</h1>
+    <hr>
+    {{ .Content }}
+    <div class="gallery-grid">
+        {{ range .Pages }}
+        {{ $alt := .Params.alt }}
+            <div class="page-link">
+                {{ with resources.GetRemote .Params.cover }}
+                    <a href="{{ .RelPermalink }}">
+                        {{ with .Resize "200x webp q100" }}
+                            <img src="{{ .RelPermalink }}" alt="{{ $alt }}" width="{{ .Width }}" height="{{ .Height }}" loading="lazy">
+                        {{ end }}
+                    </a>
+                {{ end }}
+                <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                <span>{{ .Params.created | time.Format ":date_medium" }}</span>
+                <span class="page-tags">
+                    {{ range .Params.tags }}
+                        <a href='{{ "/tags/" | absURL }}{{ . | urlize }}'>{{ . }}</a> 
+                    {{ end }}
+                </span>
+            </div>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

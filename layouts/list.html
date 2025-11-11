@@ -1,13 +1,71 @@
 {{ define "main" }}
+<style>
+    ul{
+        list-style-type: none;
+    }
+
+    li{
+        display: flex;
+    }
+
+    .item-details{
+        margin-left: 0.8rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .item-title{
+        font-size: 1.1rem;
+    }
+
+    .item-stats{
+        color: var(--grey);
+    }
+
+    .item-tags{
+        display: block;
+    }
+
+    .item-tags a:not(:last-of-type){
+    border-right: var(--border-1);
+    }
+
+    .item-tags a{
+        padding: 0 0.2rem 0 0.2rem;
+        font-size: 0.8rem;
+    }
+</style>
+
 <div class="main-container">
     <h1>{{ .Title }}</h1>
     <hr>
     {{ .Content }}
     <ul>
         {{ range .Pages }}
-        <li>
-            <a href="{{ .RelPermalink }}">{{ .Date.Format "Jan 02 2006" }} - {{ .LinkTitle }}</a>
-        </li>
+            <li>
+                {{ if .Params.cover }}
+                    {{ with resources.GetRemote .Params.cover }}
+                        {{ with .Resize "100x webp q70" }}
+                            <img src="{{ .RelPermalink }}" alt="" width="{{ .Width }}" height="{{ .Height }}" loading="lazy">
+                        {{ end }}
+                    {{ end }}
+                {{ end }}
+                <div class="item-details">
+                    <a class="item-title" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                    {{ if .Params.caption }}
+                        <span class="item-cap">{{ .Params.caption }}</span>
+                    {{ else }}
+                        <span class="item-cap">{{ .Summary }}</span>
+                    {{ end }}
+                    <span class="item-stats">
+                       Estimated reading time {{ .ReadingTime }} minutes | Posted {{ .Date.Format "Jan 02 2006" }} | Last Modified {{ .Params.lastmod.Format "Jan 02 2006" }}
+                    <span class="item-tags">
+                        {{ range .Params.tags }}
+                            <a href='{{ "/tags/" | absURL }}{{ . | urlize }}'>{{ . }}</a> 
+                        {{ end }}
+                    </span>
+                </div>
+            </li>
         {{ end }}
     </ul>
 </div>
