@@ -6,6 +6,8 @@ enableEmoji = true
 
 enableGitInfo = true
 
+enableRobotsTXT = true
+
 [taxonomies]
   tag = 'tags'
   category = 'categories'
