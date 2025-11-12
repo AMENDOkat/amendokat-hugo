@@ -18,6 +18,32 @@
 .wip img{
     width: 3.5rem;
 }
+
+    .posts{
+        border: var(--border-1);
+        margin: 1rem 0 1rem 0;
+    }
+
+    .post-top-section{
+        padding: 1rem;
+        border-bottom: 1px dotted var(--grey);
+    }
+
+    .post-title{
+        font-weight: bold;
+    }
+
+    .posts h2{
+        background-color: transparent;
+        color: var(--off-white);
+        padding-left: 1rem;
+        margin: 0.5rem 0 0.5rem 0;
+    }
+
+    .item-stats{
+        color: var(--grey);
+        display: block;
+    }
 </style>
 
 <div class="main-container">
@@ -33,10 +59,22 @@
 
     <h2>Latest post</h2>
     <ul>
+        {{ $date := .Date.Format "Jan 02 2006" }}
+        {{ $lastmod := .Lastmod.Format "Jan 02 2006" }}
         {{ range first 1 (where .Site.RegularPages "Section" "posts") }}
-        <li>
-            <a href="{{ .RelPermalink }}">{{ .Date.Format "Jan 02 2006" }} - {{ .LinkTitle }}</a>
-        </li>
+            <div class="posts">
+                <div class="post-top-section">
+                <span class="post-title">{{ .Title }}</span>
+                <span class="item-stats">
+                    Published {{ $date }}
+                    <!-- If "date" (Published) is different from "lastmod" (Last Modified) display last modified info, if not, display nothing -->
+                    {{ if ne $date $lastmod }}
+                        | Last Modified {{ $lastmod }}
+                    {{ end }}
+                </span>
+                </div>
+                <span>{{ .Content }}</span>
+            </div>
         <i><p><a href="/posts">see more...</a></p></i>
         {{ end }}
     </ul>
