@@ -55,26 +55,38 @@
                     {{ end }}
                     <!-- Check if frontmatter "type" matches any of the values specified, if it does, change how information is displayed on page -->
                     {{ $type := .Param "type" }}
+                    {{ $date := .Date.Format "Jan 02 2006" }}
+                    {{ $lastmod := .Lastmod.Format "Jan 02 2006" }}
                         <!-- Check if frontmatter type matches "artwork", displays information about file -->
                         {{ if eq $type "artwork" }}
                             {{ range .Params.art_tags }}
-                                [<a class="tags" href='/art_tags/{{ . | urlize }}'>{{ . }}</a>]
+                                <a class="tags" href='/art_tags/{{ . | urlize }}'>#{{ . }}</a>
                             {{ end }}
                             <span class="item-stats">
-                                Created {{ .Params.created | time.Format ":date_medium" }} | Posted {{ .Date.Format "Jan 02 2006" }} | Last Modified {{ .Params.lastmod.Format "Jan 02 2006" }}
+                                Created {{ .Params.created | time.Format ":date_medium" }} | Published {{ $date }}
+                                <!-- If "date" (Published) is different from "lastmod" (Last Modified) display last modified info, if not, display nothing -->
+                                {{ if ne $date $lastmod }}
+                                    | Last Modified {{ $lastmod }}
+                                {{ end }}
                             </span>
                         <!-- Check if frontmatter type matches "post", displays information about file -->
                         {{ else if eq $type "post" }}
                             {{ range .Params.post_tags }}
-                                [<a class="tags" href='/post_tags/{{ . | urlize }}'>{{ . }}</a>]
+                                <a class="tags" href='/post_tags/{{ . | urlize }}'>#{{ . }}</a>
                             {{ end }}
                                 <span class="item-stats">
-                                    Estimated reading time {{ .ReadingTime }} minute(s) | Posted {{ .Date.Format "Jan 02 2006" }} | Last Modified {{ .Params.lastmod.Format "Jan 02 2006" }}
+                                    Estimated reading time {{ .ReadingTime }} minute(s) | Published {{ $date }}
+                                    <!-- If "date" (Published) is different from "lastmod" (Last Modified) display last modified info, if not, display nothing -->
+                                    {{ if ne $date $lastmod }}
+                                        | Last Modified {{ $lastmod }}
+                                    {{ end }}
                                 </span>
+                                <!-- <span>
+                                    {{ .Content }}
+                                </span> -->
                         <!-- If frontmatter type doesn't match any, display chickens -->
                         {{ else }}
                             <i style="color: var(--grey);">nothing here but us chickens!</i>
-                            <img src="{{ .Site.Params.chickens }}" alt="" width="70px">
                         {{ end }}
                     </span>
                 </div>

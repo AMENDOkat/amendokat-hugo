@@ -4,6 +4,8 @@ title = 'AMENDOKAT'
 
 enableEmoji = true
 
+enableGitInfo = true
+
 [taxonomies]
   tag = 'tags'
   category = 'categories'

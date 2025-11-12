@@ -2,6 +2,39 @@
 <div class="main-container">
     <h1>{{ .Title }}</h1>
     <hr>
+    <span class="page-stats">
+        {{ $date := .Date.Format "Jan 02 2006" }}
+        {{ $lastmod := .Lastmod.Format "Jan 02 2006" }}
+
+        {{ .ReadingTime }} min read |
+        Published {{ $date }}
+                <!-- If "date" (Published) is different from "lastmod" (Last Modified) display last modified info, if not, display nothing -->
+        {{ if ne $date $lastmod }}
+            | Last Modified {{ $lastmod }}
+        {{ end }}
+    </span>
+    <hr>
     {{ .Content }}
+    {{ $type := .Param "type" }}
+    {{ if eq $type "post" }}
+        <div class="page-controls">
+            {{ $pages := .CurrentSection.Pages }}
+
+            {{ with $pages.Prev . }}
+                <div class="page-controls-content">
+                    <span>{{ .Title }}</span>
+                    <a href="{{ .RelPermalink }}">&#11164; Previous</a>
+                </div>
+            {{ end }}
+            {{ with $pages.Next . }}
+                <div class="page-controls-content">
+                    <span>{{ .Title }}</span>
+                    <a href="{{ .RelPermalink }}">Next &#11166;</a>
+                </div>
+            {{ end }}
+        </div>
+    {{ else }}
+    {{ end }}
+  
 </div>
 {{ end }}

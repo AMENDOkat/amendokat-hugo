@@ -24,8 +24,8 @@ It's terrible and I hate it. It's not something that's socially acceptable to po
 Drawing, coding, listening to music and archiving. I also like working on my media server. I've done other stuff in the past like sewing, playing guitar, editing, but they never really stuck with me.
 
 {{< figwrapper >}}
-    {{< img src="delete.png" cap=`❝ It's A Digital Disease! ❞` >}}
-    {{< img src="spoon.jpg" cap=`MFW "Leave the multi billion dollar corporations alone !1!"` >}}
+    {{< img src="delete.png" cap=`❝ It's A Digital Disease! ❞` alt="Data hoarder subreddit banner. Text on image reads: What do you mean delete?!" >}}
+    {{< img src="spoon.jpg" cap=`MFW "Leave the multi billion dollar corporations alone !1!"` alt="Amélie Poulain from the movie Amélie. She's used as profile picture by famous repacker from the piracy scene Fitgirl." >}}
 {{< /figwrapper >}}
 
 ### My music: 
@@ -60,7 +60,7 @@ Yes! I have: depression, autism, anxiety, probably something else i don't know. 
 ### what do you think about  *insert random internet bullshit here *?
 
 {{< figwrapper >}}
-    {{< gif src="kevinspencerincest.jpg">}}
+    {{< gif src="kevinspencerincest.jpg" alt="Kevin Spencer from the TV Show Kevin Spencer. Text on image reads: I don't give a fuck about incest shippers give me a beer.">}}
 {{< /figwrapper >}}
 
 

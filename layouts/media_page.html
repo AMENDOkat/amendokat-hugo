@@ -34,23 +34,21 @@
     .page-info li a{
         padding: 0 0.5rem 0 0.5rem;
     }
-
-    .page-controls{
-        background-color: #373737;
-        margin: var(--margin);
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-    }
-
-    .page-controls-content{
-        display: flex;
-        flex-direction: column;
-    }
 </style>
 
 <div class="main-container">
     <h1>{{ .Title }}</h1>
+    <hr> 
+    <span class="page-stats">
+        {{ $date := .Date.Format "Jan 02 2006" }}
+        {{ $lastmod := .Lastmod.Format "Jan 02 2006" }}
+
+        Published {{ $date }}
+                <!-- If "date" (Published) is different from "lastmod" (Last Modified) display last modified info, if not, display nothing -->
+        {{ if ne $date $lastmod }}
+            | Last Modified {{ $lastmod }}
+        {{ end }}
+    </span>
     <hr>
 <div class="page-info">
     {{ with .Params }}
@@ -65,7 +63,6 @@
                 <img src="{{ .Site.Params.chickens }}" alt="">
             {{ end }}
 
-        <span>Created {{ .Params.created | time.Format ":date_medium" }} | Posted {{ .Date.Format "Jan 02 2006" }} | Last Modified {{ .Params.lastmod.Format "Jan 02 2006" }}</span>
         <!-- Displays frontmatter "caption", if unavailable display nothing -->
         {{ with .caption }}
             <p>{{ . }}</p>
@@ -74,7 +71,7 @@
         <ul>
             <li>
                 <b>Title</b> 
-                {{ .title }}
+                {{ .Title }}
             </li>
             <li>
                 <b>Created</b> 
@@ -107,18 +104,17 @@
 {{ .Content }}
 
 <div class="page-controls">
-    {{ with .Prev }}
+    {{ $pages := .CurrentSection.Pages }}
+
+    {{ with $pages.Prev . }}
         <div class="page-controls-content">
             <span>{{ .Title }}</span>
-            <span>{{ .Params.created | time.Format ":date_medium" }}</span>
             <a href="{{ .RelPermalink }}">&#11164; Previous</a>
         </div>
     {{ end }}
-     |
-    {{ with .Next }}
+    {{ with $pages.Next . }}
         <div class="page-controls-content">
             <span>{{ .Title }}</span>
-            <span>{{ .Params.created | time.Format ":date_medium" }}</span>
             <a href="{{ .RelPermalink }}">Next &#11166;</a>
         </div>
     {{ end }}

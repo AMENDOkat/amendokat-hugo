@@ -1,6 +1,6 @@
 ---
 date: '2025-11-10T21:39:48-03:00'
-lastmod: '2025-11-10T21:39:48-03:00'
+lastmod: ''
 title: 'startrix :3'
 description: 
 layout: media_page

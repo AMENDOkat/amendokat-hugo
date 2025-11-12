@@ -25,15 +25,6 @@
     <h1>{{ .Title }}</h1>
     <hr>
     {{ .Content }}
-
-    <!-- Display and link all tags from frontmatter "art_tags" -->
-    <div class="site-tags">
-        <b>Tags:</b>
-        {{ range .Site.Taxonomies.art_tags }}
-            [<a class="tags" href='{{ .Page.RelPermalink }}'>{{ .Page.LinkTitle }}</a>]
-        {{ end }}
-    </div>
-    
     <div class="gallery-grid">
         {{ range .Pages }}
         {{ $alt := .Params.alt }}
@@ -60,7 +51,7 @@
                 <!-- Display and link taxonomy pages for frontmatter "art_tags" -->
                 <span class="page-tags">
                     {{ range .Params.art_tags }}
-                        [<a class="tags-small" href='/art_tags/{{ . | urlize }}'>{{ . }}</a>]
+                        <a class="tags-small" href='/art_tags/{{ . | urlize }}'>#{{ . }}</a>
                     {{ end }}
                 </span>
             </div>
