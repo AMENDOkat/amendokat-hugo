@@ -18,15 +18,6 @@
         flex-direction: column;
         text-align: center;
     }
-
-    .page-tags a:not(:last-of-type){
-        border-right: var(--border-1);
-    }
-
-    .page-tags a{
-        padding: 0 0.3rem 0 0.2rem;
-        font-size: 0.7rem;
-    }
 </style>
 
 
@@ -34,22 +25,42 @@
     <h1>{{ .Title }}</h1>
     <hr>
     {{ .Content }}
+
+    <!-- Display and link all tags from frontmatter "art_tags" -->
+    <div class="site-tags">
+        <b>Tags:</b>
+        {{ range .Site.Taxonomies.art_tags }}
+            [<a class="tags" href='{{ .Page.RelPermalink }}'>{{ .Page.LinkTitle }}</a>]
+        {{ end }}
+    </div>
+    
     <div class="gallery-grid">
         {{ range .Pages }}
         {{ $alt := .Params.alt }}
             <div class="page-link">
-                {{ with resources.GetRemote .Params.cover }}
-                    <a href="{{ .RelPermalink }}">
-                        {{ with .Resize "200x webp q100" }}
-                            <img src="{{ .RelPermalink }}" alt="{{ $alt }}" width="{{ .Width }}" height="{{ .Height }}" loading="lazy">
-                        {{ end }}
-                    </a>
+                <!-- Check if "cover" is available on frontmatter, if not, display chickens -->
+                {{ if .Params.cover }}
+                    {{ with resources.GetRemote .Params.cover }}
+                        <a href="{{ .RelPermalink }}">
+                            {{ with .Resize "200x webp q100" }}
+                                <img src="{{ .RelPermalink }}" alt="{{ $alt }}" width="{{ .Width }}" height="{{ .Height }}" loading="lazy">
+                            {{ end }}
+                        </a>
+                    {{ end }}
+                {{ else }}
+                    <img src="{{ .Site.Params.chickens }}" alt="">
                 {{ end }}
+                
+                <!-- Display and link page title -->
                 <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+
+                <!-- Display value of frontmatter "created" -->
                 <span>{{ .Params.created | time.Format ":date_medium" }}</span>
+
+                <!-- Display and link taxonomy pages for frontmatter "art_tags" -->
                 <span class="page-tags">
-                    {{ range .Params.tags }}
-                        <a href='{{ "/tags/" | absURL }}{{ . | urlize }}'>{{ . }}</a> 
+                    {{ range .Params.art_tags }}
+                        [<a class="tags-small" href='/art_tags/{{ . | urlize }}'>{{ . }}</a>]
                     {{ end }}
                 </span>
             </div>

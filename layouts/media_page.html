@@ -1,7 +1,4 @@
 {{ define "main" }}
-<div class="main-container">
-    <h1>{{ .Title }}</h1>
-    <hr>
    <style>
     .page-info, .page-controls{
         text-align: center;
@@ -43,16 +40,37 @@
         margin: var(--margin);
         display: flex;
         justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .page-controls-content{
+        display: flex;
+        flex-direction: column;
     }
 </style>
 
+<div class="main-container">
+    <h1>{{ .Title }}</h1>
+    <hr>
 <div class="page-info">
     {{ with .Params }}
         {{ $alt := .alt }}
-        {{ with resources.GetRemote .cover }}
-            <img src="{{ . }}" alt="{{ $alt }}" width="{{ .Width }}" height="{{ .Height }}">
+            {{ if .cover }}
+                {{ with .cover }}
+                    {{ with resources.GetRemote . }}
+                        <img src="{{ . }}" alt="{{ $alt }}" width="{{ .Width }}" height="{{ .Height }}">
+                    {{ end }}
+                {{ end }}
+            {{ else }}
+                <img src="{{ .Site.Params.chickens }}" alt="">
+            {{ end }}
+
+        <span>Created {{ .Params.created | time.Format ":date_medium" }} | Posted {{ .Date.Format "Jan 02 2006" }} | Last Modified {{ .Params.lastmod.Format "Jan 02 2006" }}</span>
+        <!-- Displays frontmatter "caption", if unavailable display nothing -->
+        {{ with .caption }}
+            <p>{{ . }}</p>
         {{ end }}
-        <p>{{ .caption }}</p>
+
         <ul>
             <li>
                 <b>Title</b> 
@@ -78,8 +96,8 @@
             </li>
             <li>
                 <b>Tags</b>
-                {{ range .tags }}
-                    <a href='{{ "/tags/" | absURL }}{{ . | urlize }}'>{{ . }}</a> 
+                {{ range .art_tags }}
+                    <a class="tags" href='/art_tags/{{ . | urlize }}'>{{ . }}</a>
                 {{ end }}
             </li>
         </ul>
@@ -90,11 +108,19 @@
 
 <div class="page-controls">
     {{ with .Prev }}
-        <a href="{{ .RelPermalink }}">&#11164; Previous</a>
+        <div class="page-controls-content">
+            <span>{{ .Title }}</span>
+            <span>{{ .Params.created | time.Format ":date_medium" }}</span>
+            <a href="{{ .RelPermalink }}">&#11164; Previous</a>
+        </div>
     {{ end }}
-     ||
+     |
     {{ with .Next }}
-        <a href="{{ .RelPermalink }}">Next &#11166;</a>
+        <div class="page-controls-content">
+            <span>{{ .Title }}</span>
+            <span>{{ .Params.created | time.Format ":date_medium" }}</span>
+            <a href="{{ .RelPermalink }}">Next &#11166;</a>
+        </div>
     {{ end }}
 </div>
 

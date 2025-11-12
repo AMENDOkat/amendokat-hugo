@@ -10,8 +10,10 @@
 
     .item-details{
         margin-left: 0.8rem;
-        display: flex;
-        flex-direction: column;
+    }
+
+    .item-title, .item-cap, .item-stats{
+        display: block;
     }
 
     .item-title{
@@ -20,19 +22,6 @@
 
     .item-stats{
         color: var(--grey);
-    }
-
-    .item-tags{
-        display: block;
-    }
-
-    .item-tags a:not(:last-of-type){
-    border-right: var(--border-1);
-    }
-
-    .item-tags a{
-        padding: 0 0.2rem 0 0.2rem;
-        font-size: 0.8rem;
     }
 </style>
 
@@ -43,25 +32,49 @@
     <ul>
         {{ range .Pages }}
             <li>
+                <!-- Check if "cover" is available on frontmatter, if not, display chickens -->
                 {{ if .Params.cover }}
-                    {{ with resources.GetRemote .Params.cover }}
+                    {{  with resources.GetRemote .Params.cover  }}
                         {{ with .Resize "100x webp q70" }}
                             <img src="{{ .RelPermalink }}" alt="" width="{{ .Width }}" height="{{ .Height }}" loading="lazy">
                         {{ end }}
                     {{ end }}
+                {{ else }}
+                    <img src="{{ .Site.Params.chickens }}" alt="" width="100px" height="100px">
                 {{ end }}
+
                 <div class="item-details">
                     <a class="item-title" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                    <!-- Check if "caption" is available on frontmatter, if not, check for "description", if description also isn't available, display summary  -->
                     {{ if .Params.caption }}
                         <span class="item-cap">{{ .Params.caption }}</span>
+                    {{ else if .Description }}
+                        <span class="item-cap">{{ .Description }}</span>
                     {{ else }}
-                        <span class="item-cap">{{ .Summary }}</span>
+                    <span class="item-cap">{{ .Summary }}</span>
                     {{ end }}
-                    <span class="item-stats">
-                       Estimated reading time {{ .ReadingTime }} minutes | Posted {{ .Date.Format "Jan 02 2006" }} | Last Modified {{ .Params.lastmod.Format "Jan 02 2006" }}
-                    <span class="item-tags">
-                        {{ range .Params.tags }}
-                            <a href='{{ "/tags/" | absURL }}{{ . | urlize }}'>{{ . }}</a> 
+                    <!-- Check if frontmatter "type" matches any of the values specified, if it does, change how information is displayed on page -->
+                    {{ $type := .Param "type" }}
+                        <!-- Check if frontmatter type matches "artwork", displays information about file -->
+                        {{ if eq $type "artwork" }}
+                            {{ range .Params.art_tags }}
+                                [<a class="tags" href='/art_tags/{{ . | urlize }}'>{{ . }}</a>]
+                            {{ end }}
+                            <span class="item-stats">
+                                Created {{ .Params.created | time.Format ":date_medium" }} | Posted {{ .Date.Format "Jan 02 2006" }} | Last Modified {{ .Params.lastmod.Format "Jan 02 2006" }}
+                            </span>
+                        <!-- Check if frontmatter type matches "post", displays information about file -->
+                        {{ else if eq $type "post" }}
+                            {{ range .Params.post_tags }}
+                                [<a class="tags" href='/post_tags/{{ . | urlize }}'>{{ . }}</a>]
+                            {{ end }}
+                                <span class="item-stats">
+                                    Estimated reading time {{ .ReadingTime }} minute(s) | Posted {{ .Date.Format "Jan 02 2006" }} | Last Modified {{ .Params.lastmod.Format "Jan 02 2006" }}
+                                </span>
+                        <!-- If frontmatter type doesn't match any, display chickens -->
+                        {{ else }}
+                            <i style="color: var(--grey);">nothing here but us chickens!</i>
+                            <img src="{{ .Site.Params.chickens }}" alt="" width="70px">
                         {{ end }}
                     </span>
                 </div>

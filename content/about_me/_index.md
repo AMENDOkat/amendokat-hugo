@@ -24,11 +24,8 @@ It's terrible and I hate it. It's not something that's socially acceptable to po
 Drawing, coding, listening to music and archiving. I also like working on my media server. I've done other stuff in the past like sewing, playing guitar, editing, but they never really stuck with me.
 
 {{< figwrapper >}}
-    {{< gif src="delete.png" cap=`❝ It's A Digital Disease! ❞` >}}
-{{< /figwrapper >}}
-
-{{< figwrapper >}}
-    {{< gif src="spoon.jpg" cap=`MFW "Leave the multi billion dollar corporations alone !1!"` >}}
+    {{< img src="delete.png" cap=`❝ It's A Digital Disease! ❞` >}}
+    {{< img src="spoon.jpg" cap=`MFW "Leave the multi billion dollar corporations alone !1!"` >}}
 {{< /figwrapper >}}
 
 ### My music: 

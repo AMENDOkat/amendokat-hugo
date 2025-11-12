@@ -18,8 +18,12 @@ Files on Neocities are [minified](https://www.geeksforgeeks.org/javascript/what-
 
 I do not support or condone the use of generative AI and it was not used during any point in the creation of this website or the content featured in it.
 
+If you have any suggestions of features I can add to the site or code improvements, feel free to contact me. Or if you prefer, make a pull request or open an issue on Github.
+
+If you encounter any bugs, broken links, or [chickens](/images/chicken.webp/), please contact me so I can fix them as soon as possible.
+
 {{< figwrapper >}}
-    {{< gif src="beemovie.png" cap=`❝ For your information I prefer AI free, hand made content, BUILT BY MAN! ❞` >}}
+    {{< img src="beemovie.png" cap=`❝ For your information I prefer AI free, hand made content, BUILT BY MAN! ❞` >}}
 {{< /figwrapper >}}
 
 ## To do list
