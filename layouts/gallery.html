@@ -1,0 +1,61 @@
+{{ define "main" }}
+<style>
+    img{
+        object-fit: contain;
+    }
+    
+    .gallery-grid{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 0.2rem;
+        column-gap: 1rem;
+        margin: 1rem 0 1rem 0;
+    }
+
+    .page-link{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+</style>
+
+
+<div class="main-container">
+    <h1>{{ .Title }}</h1>
+    <hr>
+    {{ .Content }}
+    <div class="gallery-grid">
+        {{ range .Pages }}
+        {{ $alt := .Params.alt }}
+            <div class="page-link">
+                <!-- Check if "cover" is available on frontmatter, if not, display chickens -->
+                {{ if .Params.cover }}
+                    {{ with resources.GetRemote .Params.cover }}
+                        <a href="{{ .RelPermalink }}">
+                            {{ with .Resize "200x webp q100" }}
+                                <img src="{{ .RelPermalink }}" alt="{{ $alt }}" width="{{ .Width }}" height="{{ .Height }}" loading="lazy">
+                            {{ end }}
+                        </a>
+                    {{ end }}
+                {{ else }}
+                    <img src="{{ .Site.Params.chickens }}" alt="">
+                {{ end }}
+                
+                <!-- Display and link page title -->
+                <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+
+                <!-- Display value of frontmatter "created" -->
+                <span>{{ .Params.created | time.Format ":date_medium" }}</span>
+
+                <!-- Display and link taxonomy pages for frontmatter "art_tags" -->
+                <span class="page-tags">
+                    {{ range .Params.art_tags }}
+                        <a class="tags-small" href='/art_tags/{{ . | urlize }}'>#{{ . }}</a>
+                    {{ end }}
+                </span>
+            </div>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

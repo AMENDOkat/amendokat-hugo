@@ -4,6 +4,19 @@ title = 'AMENDOKAT'
 
 enableEmoji = true
 
+enableGitInfo = true
+
+enableRobotsTXT = true
+
+[taxonomies]
+  tag = 'tags'
+  category = 'categories'
+  art_tag = 'art_tags'
+  post_tag = 'post_tags'
+
+[params]
+  chickens = '/images/chicken.webp'
+
 [menus]
   [[menus.nav]]
   name = 'home'

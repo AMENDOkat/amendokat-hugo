@@ -25,7 +25,6 @@ figcaption{
 {{ $medium := $src.Resize "600x webp" }}
 {{ $large := $src.Resize "800x webp" }}
 
-{{ with $caption }}
 <figure>
     <picture>
         <source 
@@ -45,25 +44,9 @@ figcaption{
         />
         <img src="{{ $tiny.RelPermalink }}" alt="{{ $alt }}" width="{{ $tiny.Width }}" height="{{ $tiny.Height }}" loading="lazy">
     </picture>
-    <figcaption>{{ $caption }}</figcaption>
+    {{ with $caption }}
+        <figcaption>{{ $caption }}</figcaption>
+    {{ end }}
 </figure>
-{{ else }}
-<picture>
-    <source 
-    type="image/webp"
-    media="(max-width: 640px)"
-    srcset="{{ $tiny.RelPermalink }}"
-    />
-    <source 
-    type="image/webp"
-    media="(max-width: 1007px)"
-    srcset="{{ $medium.RelPermalink }}"
-    />
-    <source 
-    type="image/webp"
-    media="(min-width: 1008px)"
-    srcset="{{ $large.RelPermalink }}"
-    />
-    <img src="{{ $tiny.RelPermalink }}" alt="{{ $alt }}" width="{{ $tiny.Width }}" height="{{ $tiny.Height }}" loading="lazy">
-</picture>
-{{ end }}
+
+
