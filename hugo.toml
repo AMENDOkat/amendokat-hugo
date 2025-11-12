@@ -1,4 +1,4 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://amendokat.github.io/amendokat/'
 languageCode = 'en-us'
 title = 'AMENDOKAT'
 
@@ -11,9 +11,7 @@ enableRobotsTXT = true
 [taxonomies]
   tag = 'tags'
   category = 'categories'
-  art_tag = 'art_tags'
-  post_tag = 'post_tags'
-
+  
 [params]
   chickens = '/images/chicken.webp'
 
