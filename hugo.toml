@@ -11,9 +11,6 @@ enableRobotsTXT = true
 [taxonomies]
   tag = 'tags'
   category = 'categories'
-  
-[params]
-  chickens = '/amendokat/images/chicken.webp'
 
 [menus]
   [[menus.nav]]
