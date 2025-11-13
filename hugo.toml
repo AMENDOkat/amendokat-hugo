@@ -8,9 +8,18 @@ enableGitInfo = true
 
 enableRobotsTXT = true
 
+[markup]
+  defaultMarkdownHandler = 'goldmark'
+  [markup.goldmark.renderHooks]
+      [markup.goldmark.renderHooks.image]
+        useEmbedded = 'fallback'
+      [markup.goldmark.renderHooks.link]
+        useEmbedded = 'fallback'
+
 [taxonomies]
   tag = 'tags'
   category = 'categories'
+  art_tag = 'art_tags'
 
 [menus]
   [[menus.nav]]

@@ -6,4 +6,4 @@ title: 'My work'
 ## My Art
 
 ### Portfolio 
-To see all of my work visit the [Art Gallery](art_gallery/)
+To see all of my work visit the [Art Gallery](art_gallery)
