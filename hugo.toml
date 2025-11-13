@@ -13,7 +13,7 @@ enableRobotsTXT = true
   category = 'categories'
   
 [params]
-  chickens = '/images/chicken.webp'
+  chickens = 'images/chicken.webp'
 
 [menus]
   [[menus.nav]]
