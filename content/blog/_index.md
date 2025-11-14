@@ -3,4 +3,4 @@ date: '2025-08-28T18:06:21-03:00'
 title: 'Blog'
 description: ''
 ---
-pinned post: [fresh start](fresh-start)
+pinned post: [fresh start](/blog/fresh-start/)
