@@ -2,6 +2,7 @@
 date: '2025-11-08T13:03:08-03:00'
 title: 'Site information'
 description: ''
+layout: main
 ---
 ## About this site
 

@@ -4,10 +4,6 @@
         list-style-type: none;
     }
 
-    li{
-        display: flex;
-    }
-
     .item-details{
         margin-left: 0.8rem;
     }
@@ -44,6 +40,32 @@
         padding-left: 1rem;
         margin: 0.5rem 0 0.5rem 0;
     }
+
+    .main-container li{
+        border: var(--border-1);
+        padding: 5px 5px 1px 5px;
+        display: flex;
+    }
+
+    @media screen and (max-width: 696px){
+        .posts{
+            border-width: 1px 0 1px 0;
+        }        
+
+        .main-container li{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            border-bottom: var(--border-1);
+            padding-bottom: 0.5rem;
+        }
+
+        li img{
+            width: 13rem;
+        }
+    }
 </style>
 
 <div class="main-container">
@@ -76,8 +98,26 @@
                     <!-- Check if "cover" is available on frontmatter, if not, display chickens -->
                     {{ if .Params.cover }}
                         {{  with resources.GetRemote .Params.cover  }}
-                            {{ with .Resize "100x webp q70" }}
-                                <img src="{{ .RelPermalink }}" alt="" width="{{ .Width }}" height="{{ .Height }}" loading="lazy">
+                            {{ with . }}
+                                <picture>
+                                    {{ $desktop := .Resize "100x webp q70" }}
+                                    {{ $mobile := .Resize "208x webp q70" }}
+                                    <source 
+                                    type="image/webp"
+                                    media="(max-width: 696px)"
+                                    srcset="{{ $mobile.RelPermalink }}"
+                                    width="{{ $mobile.Width }}"
+                                    height="{{ $mobile.Height }}"
+                                    />
+                                    <source 
+                                    type="image/webp"
+                                    media="(min-width: 697px)"
+                                    srcset="{{ $desktop.RelPermalink }}"
+                                    width="{{ $desktop.Width }}"
+                                    height="{{ $desktop.Height }}"
+                                    />
+                                    <img src="{{ $desktop.RelPermalink }}" alt="" width="{{ $desktop.Width }}" height="{{ $desktop.Height }}" loading="lazy">
+                                </picture>
                             {{ end }}
                         {{ end }}
                     {{ else }}
