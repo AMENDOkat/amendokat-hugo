@@ -20,7 +20,7 @@ I do not support or condone the use of generative AI and it was not used during 
 
 If you have any suggestions of features I can add to the site or code improvements, feel free to contact me. Or if you prefer, make a pull request or open an issue on Github.
 
-If you encounter any bugs, broken links, or [chickens](/images/chicken.webp/), please contact me so I can fix them as soon as possible.
+If you encounter any bugs, broken links, or [chickens](/images/chicken.webp), please contact me so I can fix them as soon as possible.
 
 {{< figwrapper >}}
     {{< img src="beemovie.png" cap=`❝ For your information I prefer AI free, hand made content, BUILT BY MAN! ❞` >}}
