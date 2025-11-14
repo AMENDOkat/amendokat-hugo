@@ -1,6 +1,6 @@
-
-{{ $page := .Page.RelPermalink }}
-{{ $d := .Destination }}
-{{ $g := $page | union $d }}
-
-<a href='{{ $g }}'{{ with .Title }} title="{{ . }}"{{ end }}{{ if strings.HasPrefix .Destination "https" }} rel="external" {{ end }}>{{ .Text }}</a>
+<a href="{{ .Destination | safeURL }}"
+  {{- with .Title }} title="{{ . }}"{{ end -}}
+>
+  {{- with .Text }}{{ . }}{{ end -}}
+</a>
+{{- /* chomp trailing newline */ -}}

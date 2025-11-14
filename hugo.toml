@@ -1,4 +1,4 @@
-baseURL = 'https://amendokat.github.io/amendokat/'
+baseURL = 'https://amendokat.github.io/'
 languageCode = 'en-us'
 title = 'AMENDOKAT'
 
@@ -17,8 +17,6 @@ enableRobotsTXT = true
         useEmbedded = 'fallback'
 
 [taxonomies]
-  tag = 'tags'
-  category = 'categories'
   art_tag = 'art_tags'
 
 [menus]
