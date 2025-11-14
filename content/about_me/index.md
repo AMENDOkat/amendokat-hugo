@@ -1,6 +1,7 @@
 ---
 date: '2025-08-23T23:02:59-03:00'
 title: 'About me'
+layout: main
 ---
 
 

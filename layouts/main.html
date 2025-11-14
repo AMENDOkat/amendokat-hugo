@@ -1,0 +1,28 @@
+{{ define "main" }}
+<div class="main-container">
+    <h1>{{ .Title }}</h1>
+    <hr>
+    {{ .Content }}
+    {{ $type := .Param "type" }}
+    {{ if eq $type "post" }}
+        <div class="page-controls">
+            {{ $pages := .CurrentSection.Pages }}
+
+            {{ with $pages.Prev . }}
+                <div class="page-controls-content">
+                    <span>{{ .Title }}</span>
+                    <a href="{{ .RelPermalink }}">&#11164; Previous</a>
+                </div>
+            {{ end }}
+            {{ with $pages.Next . }}
+                <div class="page-controls-content">
+                    <span>{{ .Title }}</span>
+                    <a href="{{ .RelPermalink }}">Next &#11166;</a>
+                </div>
+            {{ end }}
+        </div>
+    {{ else }}
+    {{ end }}
+  
+</div>
+{{ end }}
