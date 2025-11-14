@@ -1,1 +1,6 @@
-<a href="{{ relURL .Destination }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if strings.HasPrefix .Destination "https" }} rel="external" {{ end }}>{{ .Text }}</a>
+
+{{ $page := .Page.RelPermalink }}
+{{ $d := .Destination }}
+{{ $g := $page | union $d }}
+
+<a href='{{ $g }}'{{ with .Title }} title="{{ . }}"{{ end }}{{ if strings.HasPrefix .Destination "https" }} rel="external" {{ end }}>{{ .Text }}</a>
