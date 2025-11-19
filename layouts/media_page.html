@@ -38,17 +38,6 @@
 
 <div class="main-container">
     <h1>{{ .Title }}</h1>
-    <hr> 
-    <span class="page-stats">
-        {{ $date := .Date.Format "Jan 02 2006" }}
-        {{ $lastmod := .Lastmod.Format "Jan 02 2006" }}
-
-        Published {{ $date }}
-                <!-- If "date" (Published) is different from "lastmod" (Last Modified) display last modified info, if not, display nothing -->
-        {{ if ne $date $lastmod }}
-            | Last Modified {{ $lastmod }}
-        {{ end }}
-    </span>
     <hr>
 <div class="page-info">
     {{ with .Params }}
@@ -63,8 +52,8 @@
                 <img src='{{ relURL "images/chicken.webp" }}' alt="">
             {{ end }}
 
-        <!-- Displays frontmatter "caption", if unavailable display nothing -->
-        {{ with .caption }}
+        <!-- Displays frontmatter description -->
+        {{ with .Description }}
             <p>{{ . }}</p>
         {{ end }}
 
@@ -75,7 +64,7 @@
             </li>
             <li>
                 <b>Created</b> 
-                {{ .created | time.Format ":date_short" }}
+                {{ .Date | time.Format ":date_short" }}
             </li>
             <li>
                 <b>Where to find</b>

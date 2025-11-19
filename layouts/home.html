@@ -1,8 +1,10 @@
 {{ define "main" }}
-<style>    
+<style>
+    /* wip warning */
     .wip{
         border: 1px solid #fff;
         margin: 1rem 0 2rem 0;
+        text-align: left;
     }
 
     .wip h2{
@@ -19,6 +21,16 @@
         width: 50px;
     }
 
+    .warning{
+        text-align: center;
+    }
+
+    .warning i:first-of-type{
+        color: var(--grey);
+        padding-left: 1rem;
+    }
+
+    /* latest pages listings */
     .latest-post-list{
         list-style-type: none;
     }
@@ -44,11 +56,29 @@
         margin: 0.5rem 0 0.5rem 0;
     }
 
-    .item-stats{
-        color: var(--grey);
+    .blog-top-section{
+        display: flex;
+        border: var(--border-1);
+    }
+
+    .item-title, .item-cap, .item-stats{
         display: block;
     }
-    
+
+    .item-title{
+        font-size: 1.1rem;
+    }
+
+    .item-stats{
+        color: var(--grey);
+    }
+
+
+    /* oldweb buttons */
+    .buttons img{
+        margin: 0 0.1rem 0 0.1rem;
+    }
+
     @media screen and (max-width: 696px){
         .wip h2::after{
             content: none;
@@ -56,60 +86,173 @@
 
         .posts{
             border-width: 1px 0 1px 0;
-        }        
+        }
     }
 </style>
 
 <div class="main-container">
     <h1>{{ .Title }}</h1>
     <hr>
-    <div class="wip">
-        <h2>This site is still under construction! Please be patient!</h2>
-        <img src="images/wip.webp" alt="" width="50px" height="50px">
-        <i>Our engineers are hard at work!</i>
+    <div class="warning">
+        <img class="warning-construction" src="images/under_construction.gif" alt="">
+        <div class="wip">
+            <h2>This site is a never ending project!</h2>
+            <i class="grey-links">Under construction until: <a href="https://en.wikipedia.org/wiki/Long-term_nuclear_waste_warning_messages">the end of time</a></i><br>
+            <img src="images/wip.webp" alt="" width="50px" height="50px">
+            <i>Our engineers are hard at work!</i>
+        </div>
     </div>
 
     {{ .Content }}
 
-    <h2>Latest post</h2>
-    <ul class="latest-post-list">
-        {{ $date := .Date.Format "Jan 02 2006" }}
-        {{ $lastmod := .Lastmod.Format "Jan 02 2006" }}
-        {{ range first 1 (where .Site.RegularPages "Section" "posts") }}
+    <div class="buttons">
+        <img src="images/decorations/paws.gif" alt="" loading="lazy">
+        <img src="images/decorations/html-dream.gif" alt="" loading="lazy">
+        <a href="https://www.firefox.com/en-US/?redirect_source=mozilla-org"><img src="images/decorations/firefoxn00bs.gif" alt="" loading="lazy"></a>
+        <a href="https://neocities.org/"><img src="images/decorations/neocities1.gif" alt="" loading="lazy"></a>
+        <img src="images/decorations/png.png" alt="" loading="lazy">
+        <img src="images/decorations/share.jpg" alt="" loading="lazy">
+        <img src="images/decorations/responsivesite.jpg" alt="" loading="lazy">
+    </div>
+
+    <h2>What's new?</h2>
+    <b>xx/xx/xx</b>
+    <ul>
         <li>
-            <div class="posts">
-                <div class="post-top-section">
-                <span class="post-title">{{ .Title }}</span>
-                <span class="item-stats">
-                    Published {{ $date }}
-                    <!-- If "date" (Published) is different from "lastmod" (Last Modified) display last modified info, if not, display nothing -->
-                    {{ if ne $date $lastmod }}
-                        | Last Modified {{ $lastmod }}
-                    {{ end }}
-                </span>
-                </div>
-                <span>{{ .Content }}</span>
-            </div>
+            Published the site!
         </li>
+    </ul>
+
+    <p><i>To see <u>what's next</u> visit the <a href="site/#to-do-list">To do list</a></i></p>
+
+    <!-- ASSIGN VARIABLES FOR LISTINGS -->
+    <!-- "Published" date frontmatter -->
+    {{ $date := .Date.Format "Jan 02 2006" }}
+    <!-- "Last Modified" lastmod frontmatter, provided by git -->
+    {{ $lastmod := .Lastmod.Format "Jan 02 2006" }}
+
+    <!-- DISPLAYS MOST RECENT POST -->
+    <h2>latest from /posts/</h2>
+    <ul class="latest-post-list">
+        <!-- Select most recent page published on "posts" section -->
+        {{ range first 1 (where .Site.RegularPages "Section" "posts") }}
+            <li>
+                <div class="posts">
+                    <div class="post-top-section">
+                    <!-- Display post title -->
+                    <span class="post-title">{{ .Title }}</span>
+                    <span class="item-stats">
+                        <!-- Display's "date" frontmatter (Post's publish date) -->
+                        Published {{ $date }}
+                        <!-- If "date" (Published) is different from "lastmod" (Last Modified) display last modified info, if not, display nothing -->
+                        {{ if ne $date $lastmod }}
+                            | Last Modified {{ $lastmod }}
+                        {{ end }}
+                    </span>
+                    </div>
+                    <!-- Display contents of post -->
+                    <span>{{ .Content }}</span>
+                </div>
+            </li>
         {{ end }}
     </ul>
     <i><p><a href="posts">see more...</a></p></i>
+
+    <!-- LISTS MOST RECENT BLOG POST -->
+   <h2>latest from /blog/</h2>
+    <ul class="latest-post-list">
+        <!-- Select most recent page published on "blog" section -->
+        {{ range first 1 (where .Site.RegularPages "Section" "blog") }}
+            <li>
+                <div class="blog">
+                    <div class="blog-top-section">
+                    <!-- Check if "cover" is available on frontmatter, if not, display chickens -->
+                    {{ if .Params.cover }}
+                        <!-- If cover is available on frontmatter, change the way it's displayed depending on user's screen resolution (Responsive) -->
+                        {{  with resources.GetRemote .Params.cover  }}
+                            <picture>
+                                {{ $desktop := .Resize "100x webp q70" }}
+                                {{ $mobile := .Resize "208x webp q70" }}
+                                <source
+                                type="image/webp"
+                                media="(max-width: 696px)"
+                                srcset="{{ $mobile.RelPermalink }}"
+                                width="{{ $mobile.Width }}"
+                                height="{{ $mobile.Height }}"
+                                />
+                                <source
+                                type="image/webp"
+                                media="(min-width: 697px)"
+                                srcset="{{ $desktop.RelPermalink }}"
+                                width="{{ $desktop.Width }}"
+                                height="{{ $desktop.Height }}"
+                                />
+                                <img src="{{ $desktop.RelPermalink }}" alt="" width="{{ $desktop.Width }}" height="{{ $desktop.Height }}" loading="lazy">
+                            </picture>
+                        {{ end }}
+                    {{ else }}
+                        <img src='{{ relURL "images/chicken.webp" }}' alt="" width="100px" height="100px">
+                    {{ end }}
+                        <!-- Displays post's title -->
+                        <div class="item-details">
+                        <a class="item-title" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                        <!-- Check if "description" is available on frontmatter, if not, display summary  -->
+                            {{ if .Description }}
+                                <span class="item-cap">{{ .Description }}</span>
+                            {{ else }}
+                                <span class="item-cap">{{ .Summary }}</span>
+                            {{ end }}
+                            <!-- Display post's tags -->
+                            {{ range .Params.blog_tags }}
+                                <a class="tags" href='/blog_tags/{{ . | urlize }}'>#{{ . }}</a>
+                            {{ end }}
+                            <span class="item-stats">
+                                <!-- Display's "date" frontmatter (Post's publish date) -->
+                                Published {{ $date }}
+                                <!-- If "date" (Published) is different from "lastmod" (Last Modified) display last modified info, if not, display nothing -->
+                                {{ if ne $date $lastmod }}
+                                    | Last Modified {{ $lastmod }}
+                                {{ end }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        {{ end }}
+    </ul>
+    <i><p><a href="blog">see more...</a></p></i>
 
     <h2>Support me</h2>
     <p>
         If you like what I do, be it my art, this website, or you just think I'm so cool it really makes you wanna give me money, you can support me by:
     </p>
     <ul>
-        <li>Sending me a one time tip on <a href="https://ko-fi.com/amendokat">ko-fi</a></li>
+        <li>Sending me a tip on <a href="https://ko-fi.com/amendokat">ko-fi</a></li>
         <li>Becoming a supporter on <a href="https://ko-fi.com/amendokat/tiers">ko-fi</a></li>
         <li>Buying an <a href="https://amendokatcommissions.carrd.co/">art commission</a></li>
     </ul>
+    <a href="https://ko-fi.com/amendokat"><img src="images/decorations/coffee.gif" alt=""></a>
 
-    <h2>Contact me</h2>
+    <h2>Where to find me</h2>
+    <p>I barely use social media, the only place I'm really active on rn is Bluesky (I'd like to hang more on Tumblr but I just keep forgetting about it!). If you look up "amendokat" online you're gonna find many other accounts with my name on them, most of them are abandoned or barely ever updated so don't bother.</p>
+    <p></p>
+    <ul>
+        <li>neocities: <a href="https://neocities.org/site/amendokat">amendokat</a></li>
+        <li>bluesky: <a href="https://bsky.app/profile/amendokat.neocities.org">amendokat.neocities.org</a></li>
+        <li>tumblr: <a href="https://www.tumblr.com/amendokat">amendokat</a></li>
+    </ul>
+
+    <h3>Contact me</h3>
     <p>I don't like being messaged through my social media due to previous issues I've had with internet creeps. If you'd like to contact me for any reason, be it a commission or you wanna tell me your favorite fun facts about Sunni Westbrook, please do so through Discord or E-mail.</p>
     <ul>
         <li>discord: <a href="https://discord.com/">amendokat</a></li>
         <li>e-mail: <a href="mailto:amendokat@gmail.com">amendokat@gmail.com</a></li>
     </ul>
+
+    <h2>add my button to your site!</h2>
+    <p>If you do lmk so I can add yours here too!! let's be web neighbours :D</p>
+    <img src="images/amendokat.webp" alt="" loading="lazy"><br>
+    <textarea name="My website button" id="button-link" readonly><a href="https://amendokat.neocities.org/"><img src="images/amendokat.webp" alt="" loading="lazy"></a></textarea><br>
+    <button onclick="copyWebsiteButton()">copy to clipboard</button>
 </div>
 {{ end }}

@@ -18,6 +18,7 @@ enableRobotsTXT = true
 
 [taxonomies]
   art_tag = 'art_tags'
+  blog_tag = 'blog_tags'
 
 [menus]
   [[menus.nav]]
@@ -46,26 +47,11 @@ enableRobotsTXT = true
   weight = 5
 
   [[menus.nav]]
-  name = 'site'
-  pageRef = '/site'
+  name = 'links'
+  pageRef = '/links'
   weight = 6
 
-  [[menus.footerlinks]]
-  name = 'ko-fi'
-  url = 'https://ko-fi.com/amendokat'
-  weight = 1
-
-  [[menus.footerlinks]]
-  name = 'bluesky'
-  url = 'https://bsky.app/profile/amendokat.bsky.social'
-  weight = 3
-
-  [[menus.footerlinks]]
-  name = 'neocities'
-  url = 'https://neocities.org/site/amendokat'
-  weight = 2
-
-  [[menus.footerlinks]]
-  name = 'tumblr'
-  url = 'https://www.tumblr.com/amendokat'
-  weight = 4
+  [[menus.nav]]
+  name = 'site'
+  pageRef = '/site'
+  weight = 7

@@ -1,9 +1,2 @@
-<span>
-    <ul>
-        {{ range .Site.Menus.footerlinks }}
-        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
-        {{ end }}
-    </ul>
-</span>
 <span>coded by AMENDOKAT with his own two paws &#x1F43E;</span>
-<span><a href="#top">(return to top)</a></span>
+<span><a href="{{ .Page.RelPermalink }}">(return to top)</a></span>

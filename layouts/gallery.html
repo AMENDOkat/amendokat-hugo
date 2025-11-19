@@ -4,13 +4,17 @@
         object-fit: contain;
     }
     
-    .gallery-grid{
+    .gallery{
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         row-gap: 0.2rem;
         column-gap: 1rem;
         margin: 1rem 0 1rem 0;
+    }
+
+    .page-tags{
+        width: 15rem;
     }
 
     .page-link{
@@ -25,7 +29,7 @@
     <h1>{{ .Title }}</h1>
     <hr>
     {{ .Content }}
-    <div class="gallery-grid">
+    <div class="gallery">
         {{ range .Pages }}
         {{ $alt := .Params.alt }}
             <div class="page-link">
@@ -45,8 +49,8 @@
                 <!-- Display and link page title -->
                 <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
 
-                <!-- Display value of frontmatter "created" -->
-                <span>{{ .Params.created | time.Format ":date_medium" }}</span>
+                <!-- Display date frontmatter -->
+                <span>{{ .Date | time.Format ":date_medium" }}</span>
 
                 <!-- Display and link taxonomy pages for frontmatter "art_tags" -->
                 <span class="page-tags">
@@ -58,4 +62,7 @@
         {{ end }}
     </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js" integrity="sha512-b4rL1m5b76KrUhDkj2Vf14Y0l1NtbiNXwV+SzOzLGv6Tz1roJHa70yr8RmTUswrauu2Wgb/xBJPR8v80pQYKtQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>lightGallery(document.querySelector('.gallery'));</script>
 {{ end }}

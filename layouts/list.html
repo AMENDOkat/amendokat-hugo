@@ -92,7 +92,6 @@
                     </div>
                     <span>{{ .Content }}</span>
                 </div>
-            
             {{ else }}
                 <li>
                     <!-- Check if "cover" is available on frontmatter, if not, display chickens -->
@@ -123,13 +122,10 @@
                     {{ else }}
                         <img src='{{ relURL "images/chicken.webp" }}' alt="" width="100px" height="100px">
                     {{ end }}
-
                     <div class="item-details">
                         <a class="item-title" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-                        <!-- Check if "caption" is available on frontmatter, if not, check for "description", if description also isn't available, display summary  -->
-                        {{ if .Params.caption }}
-                            <span class="item-cap">{{ .Params.caption }}</span>
-                        {{ else if .Description }}
+                        <!-- Check if "description" is available on frontmatter, if not, display summary  -->
+                        {{ if .Description }}
                             <span class="item-cap">{{ .Description }}</span>
                         {{ else }}
                         <span class="item-cap">{{ .Summary }}</span>
@@ -140,7 +136,15 @@
                                     <a class="tags" href='/art_tags/{{ . | urlize }}'>#{{ . }}</a>
                                 {{ end }}
                                 <span class="item-stats">
-                                    Created {{ .Params.created | time.Format ":date_medium" }} | Published {{ $date }}
+                                    Created {{ .Date | time.Format ":date_medium" }}
+                                </span>
+                            <!-- Check if frontmatter type matches "blog", displays information about file -->
+                            {{ else if eq $type "blog" }}
+                                {{ range .Params.blog_tags }}
+                                    <a class="tags" href='/blog_tags/{{ . | urlize }}'>#{{ . }}</a>
+                                {{ end }}
+                                <span class="item-stats">
+                                    Published {{ $date }}
                                     <!-- If "date" (Published) is different from "lastmod" (Last Modified) display last modified info, if not, display nothing -->
                                     {{ if ne $date $lastmod }}
                                         | Last Modified {{ $lastmod }}

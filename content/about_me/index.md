@@ -6,9 +6,14 @@ layout: main
 
 
 ## Who's the webmaster?
-My name is Arthur, but online I go by Kat. Pronouns he/him. I'm an artist, I mostly work with digital art, fan works but I have plans for OC content in the future. I've done a lot of MLP fan art in the past, specifically for the little pony pegasus Cozy Glow. I'm autistic and My Little Pony has been my special interest for years now, and I don't see that changing any time soon. I've had a number of hyperfixations in the past ranging from Azula from Avatar the Last Airbender, The Phantom of the Opera, The Wizard of Oz, Amity Blight from The Owl House and True Crime. *Please talk to me about any of them.* Besides for my drawings, I haven't really published anything, though I've written a few stories and coded a few things (mainly this website and all it's drafts) - I would really like to invest more time in those in the future, but don't have any concrete plans to do so as of now.
+My name is Arthur, but online I go by Kat (he/him). I'm an artist, I mostly work with digital art, fan works but I have plans for OC content in the future. I've done a lot of MLP fan art in the past, specifically for the little pony pegasus Cozy Glow. I'm autistic and My Little Pony has been my special interest for years now, and I don't see that changing any time soon. I've had a number of hyperfixations in the past ranging from Azula from Avatar the Last Airbender, The Phantom of the Opera, The Wizard of Oz, Amity Blight from The Owl House and True Crime. *Please talk to me about any of them.* Besides for my drawings, I haven't really published anything, though I've written a few stories and coded a few things (mainly this website and all it's drafts) - I would really like to invest more time in those in the future, but don't have any concrete plans to do so as of now.
 
 I'd rather keep my personal life separate from my online activity, so all **personal** information will remain private. A few things worth mentioning: I am a very political person, radical left, I talk about politics here and on all my profiles. I have *a lot* of *very* strong opinions about *a lot* of things. I'm a punk, but I'm also really into the goth subculture as well. I'm brazilian, which means english is not my first language. I am very queer I don't care about gender I like everyone, I am also a trans man. I'm a furry, a brony, and whatever other evil titles I can adopt. I am in fact employed and pursuing a higher education (calm down ladies I know). I'm also really good at [Be a Parkour Ninja](https://www.roblox.com/games/147848991/Be-A-Parkour-Ninja) on Roblox - or at least last time I played like... Two years ago, I was.
+
+## Quiz results
+{{< figwrapper >}}
+{{< img src="twilight.jpg" link="https://www.theotaku.com/quizzes/view/3639/who_are_you_in_the_mane_6%3F" >}}
+{{< /figwrapper >}}
 
 ## Kat Trivia
 

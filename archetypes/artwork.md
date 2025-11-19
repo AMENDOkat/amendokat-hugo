@@ -1,17 +1,14 @@
 ---
-date: '{{ .Date }}'
-lastmod: '{{ .Date }}'
+date: YYYY-MM-DD
 title: '{{ replace .File.ContentBaseName "-" " " | title }}'
-description: 
+description: caption_goes_here
 layout: media_page
 type: artwork
 cover: 
 alt: 
-created: 
-caption: 
 bluesky: 
 tumblr: 
 derpibooru: 
-portfolio: 
-tags: [""]
+portfolio: false
+art_tags: [""]
 ---

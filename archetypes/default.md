@@ -1,6 +1,6 @@
 ---
 date: '{{ .Date }}'
-lastmod: '{{ .Date }}'
+lastmod: ''
 title: '{{ replace .File.ContentBaseName "-" " " | title }}'
 description: 
 ---
