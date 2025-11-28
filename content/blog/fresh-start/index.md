@@ -4,6 +4,7 @@ lastmod: ''
 title: 'Having a Website Makes You About 20% Cooler'
 description: Why I decided to make a website and a few other related thoughts.
 type: blog
+cover: https://i.imgur.com/KT2Fy55.jpeg
 blog_tags: ["personal"]
 ---
 
@@ -21,4 +22,4 @@ I have so many ideas for the future here, you can check them out at the roadmap.
 
 That's all I have to say for now. Websites are awesome and I wanted to make one. I take great pride in my work as I've put so much love and so many hours into it. And I want other people to enjoy it too, maybe not as much as I do, but to have a good time here nonetheless. 
 
-See y'all next post glowers! :horse: stay glowing :chess_pawn:
+see y'all next post glowers! stay glowing always :chess_pawn: :chess_pawn: :chess_pawn:

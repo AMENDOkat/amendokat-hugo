@@ -18,7 +18,7 @@ Self explanatory.
 - [Chad Chad](https://www.youtube.com/@thechadx2) 
 	One of the very few YT comedy channels I actually enjoy. Go check her out!
 - [Mental Outlaw](https://www.youtube.com/@MentalOutlaw) 
-	I don't particularly agree with a lot of what this guy has to say, specially the whole AI bs, but I find that his videos on the dark web and opsec in general are actually very well informed and he's really good at explaining stuff so anyone can understand it. I would recommend his channel if you're ever interested in learning about those topics.
+	I don't particularly agree with some of the stuff this guy has to say, specially the whole AI bs, but I find that his videos on the dark web and opsec in general are actually very well informed and he's really good at explaining stuff so anyone can understand it. I would recommend his channel if you're ever interested in learning about those topics.
 
 ## web neeeigh-bors
 If you wanna be added here just add my button to your site and lmk so I can link you back!
@@ -26,8 +26,12 @@ If you wanna be added here just add my button to your site and lmk so I can link
 - [dannarchy](https://dannarchy.com/)
 - [Mental Labour](https://mental-labour.neocities.org/)
 - [Petra Pixel](https://petrapixel.neocities.org/)
+- [KID★WITH★THE★CHEMICALZ](https://kidwiththechemicalz.net/)
 - [ribo.zone](https://ribo.zone/)
 - [NomnomNami](https://nomnomnami.com/)
+- [Vampire's Nest](https://lupinus.neocities.org/)
+- [DOOMROT](https://doomrot.neocities.org/)
+
 
 ## Thanks!
 People who's guidance (internet tutorials) helped make this site possible.
@@ -49,6 +53,8 @@ A few sites worth checking out.
 	Takes you to a random "useless" website, mostly little quirky browser games to play when you're bored.
 - [Windows 93](https://www.windows93.net/)
 	Browser game laid out like an old Windows operating system.
+- [The World Wide Web project](https://info.cern.ch/)
+	Browse the first website!
 
 ## Kat elected most awesome programs on the web
 Software that I use, approve and recommend.
@@ -124,6 +130,8 @@ Resources to help build and populate your webpage.
 ### Graphics
 - [Gifcities](https://gifcities.org/)
 	If you want some cool old school graphics for your site you need to check this out. It's a search engine that searches for images on archived [Geocities](https://en.wikipedia.org/wiki/GeoCities) websites.
+- [Cool Text Graphics Generator](https://cooltext.com/)
+	Generate cool text !
 - [Old Windows Icons](https://oldwindowsicons.tumblr.com/)
 	Blog with a great collection of old Windows icons, plus whatever other retro icons the author wanted to archive.
 - [Windows 98 Icon Viewer](https://win98icons.alexmeub.com/)

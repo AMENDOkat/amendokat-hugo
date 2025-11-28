@@ -1,6 +1,7 @@
 ---
 date: YYYY-MM-DD
-title: '{{ replace .File.ContentBaseName "-" " " | title }}'
+lastmod: 
+title: 
 description: caption_goes_here
 layout: media_page
 type: artwork
@@ -10,5 +11,6 @@ bluesky:
 tumblr: 
 derpibooru: 
 portfolio: false
-art_tags: [""]
+exclusive: 
+art_tags: ["tag1", "tag2", "tag3"]
 ---

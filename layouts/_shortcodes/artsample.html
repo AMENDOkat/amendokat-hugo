@@ -1,0 +1,15 @@
+{{ $portfolio := .Page.Resources.GetMatch (.Get "portfolio") }}
+
+{{ range where .Site.RegularPages "Section" "/my_work/art_gallery"  }}
+                {{ if .Params.cover }}
+                    {{ with resources.GetRemote .Params.cover }}
+                        <a href="{{ .RelPermalink }}">
+                            {{ with .Resize "200x webp q85" }}
+                                <img src='{{ .RelPermalink }}' alt="" width="{{ .Width }}" height="{{ .Height }}" loading="lazy">
+                            {{ end }}
+                        </a>
+                    {{ end }}
+                {{ else }}
+                    <img src='{{ relURL "images/chicken.webp" }}' alt="" loading="lazy">
+                {{ end }}
+{{ end }}

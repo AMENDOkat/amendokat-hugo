@@ -24,7 +24,40 @@ If you encounter any bugs, broken links, or [chickens](/images/chicken.webp), pl
     {{< img src="beemovie.png" cap=`❝ For your information I prefer AI free, hand made content, BUILT BY MAN! ❞` >}}
 {{< /figwrapper >}}
 
-## To do list
+## Roadmap for the website; to-do list for the well acquainted
 
-- make the to do list
+### HIGH PRIORITIES
+Features I am either currently working on or will begin work on ASAP
 
+- Re-work how images are processed internally. Making use of HUGO's render hooks and reducing the amount of shortcodes necessary to load an image
+- Re-work code structure to improve scalability and maintainability
+- Move all CSS to one universal stylesheet
+- Performance and accessibility tweaks
+
+### MEDIUM PRIORITIES
+Features I will work on once I'm finished with the HP
+
+- Create reviews page
+- Change external link markers from render hooks to css
+- Make proper video shortcode and/or render hook
+- Create Portfolio section and migrate commission info from Carrd to Neocities
+- Rework style for "posts" so they look closer to how microblogging platforms like Bluesky display their posts; posts list currently can't render images/videos
+- Imlement gallery lightbox / CDN for images 
+- Re-work links page; change how text is displayed, make them similar in look to Google Search Results, add website buttons, add more links 
+
+### LOW PRIORITIES
+Features that are gonna come in a distant future or might be implemented in between updates depending on level of complexity
+
+- Add "Featured Drawing" section to homepage
+- Create RSS feed 
+- Display number of pages that are a part of a specific tag
+- Add "Picture of the Week" section to homepage
+- Tag filtering system
+- Implement Bluesky comments integration; save comments to Google Appsheets
+- Google appsheets guestbook integration
+- Make GitHub and Nekoweb mirrors
+- Make custom 404 page
+- Make library page
+- Add different themes for the website; ability to switch between themes
+- Achievement system
+- Custom CSS for individual pages

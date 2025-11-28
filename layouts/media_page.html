@@ -1,6 +1,10 @@
 {{ define "main" }}
    <style>
-    .page-info, .page-controls{
+    .information-title{
+        font-weight: bold;
+    }
+
+    .page-info{
         text-align: center;
     }
 
@@ -34,80 +38,102 @@
     .page-info li a{
         padding: 0 0.5rem 0 0.5rem;
     }
+
+    .img-container{
+        display: flex;
+        justify-content: center;
+        padding: 0.5rem 0 0.7rem 0;
+    }
+
+    .img-display{
+        max-width: 45vw;
+    }
+
+@media screen and (max-width: 696px){
+    .img-display{
+        max-width: 80vw;
+    }
+}
 </style>
 
 <div class="main-container">
     <h1>{{ .Title }}</h1>
     <hr>
-<div class="page-info">
-    {{ with .Params }}
-        {{ $alt := .alt }}
-            {{ if .cover }}
-                {{ with .cover }}
-                    {{ with resources.GetRemote . }}
-                        <img src="{{ . }}" alt="{{ $alt }}" width="{{ .Width }}" height="{{ .Height }}">
-                    {{ end }}
-                {{ end }}
-            {{ else }}
-                <img src='{{ relURL "images/chicken.webp" }}' alt="">
-            {{ end }}
-
-        <!-- Displays frontmatter description -->
-        {{ with .Description }}
-            <p>{{ . }}</p>
+    <div class="page-controls">
+        {{ $pages := .CurrentSection.Pages }}
+        {{ with $pages.Next . }}
+            <div class="page-controls-content">
+                <!-- <span>{{ .Title }}</span> -->
+                <a href="{{ .RelPermalink }}">&#11164; Next</a>
+            </div>
         {{ end }}
+        <span class="page-stats">
+            {{ $lastmod := .Lastmod.Format "Jan 02 2006" }}
+            Last Modified {{ $lastmod }}
+        </span>
+        {{ with $pages.Prev . }}
+            <div class="page-controls-content">
+                <!-- <span>{{ .Title }}</span> -->
+                <a href="{{ .RelPermalink }}">Previous &#11166;</a>
+            </div>
+        {{ end }}
+    </div>
 
-        <ul>
-            <li>
-                <b>Title</b> 
-                {{ .Title }}
-            </li>
-            <li>
-                <b>Created</b> 
-                {{ .Date | time.Format ":date_short" }}
-            </li>
-            <li>
-                <b>Where to find</b>
-                {{ with .bluesky }}
-                    <a href="{{ . }}">bluesky</a>
+    <div class="page-info">
+        {{ with .Params }}
+            {{ $alt := .alt }}
+                {{ if .cover }}
+                    {{ with .cover }}
+                        {{ with resources.GetRemote . }}
+                            <div class="img-container"><img class="img-display" src="{{ . }}" alt="{{ $alt }}" width="{{ .Width }}" height="{{ .Height }}"></div>
+                        {{ end }}
+                    {{ end }}
+                {{ else }}
+                    <img src='{{ relURL "images/chicken.webp" }}' alt="">
                 {{ end }}
 
-                {{ with .tumblr }}
-                    <a href="{{ . }}">tumblr</a>
-                {{ end }}
-                
-                {{ with .derpibooru }}
-                    <a href="{{ . }}">derpibooru</a>
-                {{ end }}
-            </li>
-            <li>
-                <b>Tags</b>
-                {{ range .art_tags }}
+            <ul>
+                <li>
+                    <div class="information-title"><i class="fa-solid fa-file-lines"></i> Description</div>
+                    {{ with .Description }}
+                        {{ . }}
+                    {{ else }}
+                        <i>No description provided.</i>
+                    {{ end }}
+                </li>
+                <li>
+                    <div class="information-title"><i class="fa-solid fa-palette"></i> Created</div>
+                    {{ .Date | time.Format ":date_short" }}
+                </li>
+                <li>
+                    <div class="information-title"><i class="fa-solid fa-link"></i> Links</div>
+                    {{ with .bluesky }}
+                    <div class=""><i class="fa-brands fa-bluesky"></i><a href="{{ . }}"></i>bluesky</a></div>
+                    {{ end }}
+
+                    {{ with .tumblr }}
+                        <div class=""><i class="fa-brands fa-tumblr"></i><a href="{{ . }}">tumblr</a></div>
+                    {{ end }}
+                    
+                    {{ with .derpibooru }}
+                        <div class=""><i class="fa-solid fa-horse-head"></i><a href="{{ . }}">derpibooru</a></div>
+                    {{ end }}
+
+                    {{ if eq .exclusive true }}
+                        <i>Website exclusive.</i> 
+                    {{ end }}
+                </li>
+                <li>
+                    <div class="information-title"><i class="fa-solid fa-tag"></i> Tags</div>
+                    {{ range .art_tags }}
                     <a class="tags" href='/art_tags/{{ . | urlize }}'>{{ . }}</a>
-                {{ end }}
-            </li>
-        </ul>
-    {{ end }}
-</div>
+                    {{ end }}
+                </li>
+            </ul>
+        {{ end }}
+    </div>
 
 {{ .Content }}
-
-<div class="page-controls">
-    {{ $pages := .CurrentSection.Pages }}
-
-    {{ with $pages.Prev . }}
-        <div class="page-controls-content">
-            <span>{{ .Title }}</span>
-            <a href="{{ .RelPermalink }}">&#11164; Previous</a>
-        </div>
-    {{ end }}
-    {{ with $pages.Next . }}
-        <div class="page-controls-content">
-            <span>{{ .Title }}</span>
-            <a href="{{ .RelPermalink }}">Next &#11166;</a>
-        </div>
-    {{ end }}
-</div>
 
 </div>
 

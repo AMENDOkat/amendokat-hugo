@@ -10,6 +10,46 @@ My name is Arthur, but online I go by Kat (he/him). I'm an artist, I mostly work
 
 I'd rather keep my personal life separate from my online activity, so all **personal** information will remain private. A few things worth mentioning: I am a very political person, radical left, I talk about politics here and on all my profiles. I have *a lot* of *very* strong opinions about *a lot* of things. I'm a punk, but I'm also really into the goth subculture as well. I'm brazilian, which means english is not my first language. I am very queer I don't care about gender I like everyone, I am also a trans man. I'm a furry, a brony, and whatever other evil titles I can adopt. I am in fact employed and pursuing a higher education (calm down ladies I know). I'm also really good at [Be a Parkour Ninja](https://www.roblox.com/games/147848991/Be-A-Parkour-Ninja) on Roblox - or at least last time I played like... Two years ago, I was.
 
+## My Art
+I'm a hobbyist artist, I work mainly on digital. My illustrations have a really big focus in color, brush work and textures. Painting is my favorite part of the process, and what I consider my biggest strength as well. I put hours of work, love and dedication in every single one of my pieces, and I feel like they really show it.
+
+Most of my work is fan art. Specifically My Little Pony fan art, specifically the character Cozy Glow, as I've been deathly obsessed with her and the show for quite a few years now. But occasionally I draw other media and even my own characters.
+
+I've been working with art commissions for about two years now. If you'd like to get one, make sure to check out my commissions page for my prices and terms of service.
+
+Drawing is very important to me and It's something that's helped me through many tough spots in life, it helped me meet wonderful people and build a nice little community online that I can call my own. I couldn't be more thankful to it.
+
+### Artist Links 
+- If you're interested in getting a commission from me please visit my [Commissions page](https://amendokatcommissions.carrd.co/)
+- To see a complete collection of my work please visit the [Art Gallery](/art_gallery/)
+
+## Coding
+I'm a hobbyist programmer as well. Nowhere near where I'm at on my art journey, but I know a thing or too. My coding experience mostly comes from this website, it's two previous (now scrapped) drafts and a other minor things: bash/batch commands to automate a few tasks on my desktop, CLI applications such as [yt-dlp](https://github.com/yt-dlp/yt-dlp)  and troubleshooting [Linux Mint](https://www.linuxmint.com/). 
+
+I don't do commissions or freelance coding work because I am not confident enough in my abilities as a programmer to do so. But if you have a question you think I might be able to answer, I'd be more than glad to help out.
+
+I have definite plans to develop my coding skills as I would very much like to work on my own applications, contribute to my favorite open source projects and make an indie game.
+
+As of now my plan is to pick up learning Python and Javascript.
+
+## Where To Find Me
+I barely use social media, the only place I'm really active on rn is Bluesky (I'd like to hang more on Tumblr but I just keep forgetting about it!). If you look up "amendokat" online you're gonna find many other accounts with my name on them, most of them are abandoned or barely ever updated so don't bother.
+
+- neocities: [amendokat](https://neocities.org/site/amendokat)
+- bluesky: [amendokat.neocities.org](https://bsky.app/profile/amendokat.neocities.org)
+- tumblr: [amendokat](https://www.tumblr.com/amendokat)
+
+## Contact Me
+I don't like being messaged through my social media due to previous issues I've had with internet creeps. If you'd like to contact me for any reason, be it a commission or you wanna tell me your favorite fun facts about Sunni Westbrook, please do so through Discord or E-mail.
+- discord: [amendokat](https://discord.com/)
+- e-mail: [amendokat@gmail.com](mailto:amendokat@gmail.com)
+
+## Support Me
+If you like what I do, be it my art, this website, or you just think I'm so cool it really makes you wanna give me money, you can support me by:
+- Sending me a tip on [ko-fi](https://ko-fi.com/amendokat)
+- Becoming a supporter on [ko-fi](https://ko-fi.com/amendokat/tiers)
+- Buying an [art commission](https://amendokatcommissions.carrd.co/)
+
 ## Quiz results
 {{< figwrapper >}}
 {{< img src="twilight.jpg" link="https://www.theotaku.com/quizzes/view/3639/who_are_you_in_the_mane_6%3F" >}}

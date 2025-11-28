@@ -1,103 +1,37 @@
 {{ define "main" }}
-<style>
-    ul{
-        list-style-type: none;
-    }
-
-    .item-details{
-        margin-left: 0.8rem;
-    }
-
-    .item-title, .item-cap, .item-stats{
-        display: block;
-    }
-
-    .item-title{
-        font-size: 1.1rem;
-    }
-
-    .item-stats{
-        color: var(--grey);
-    }
-
-    .posts{
-        border: var(--border-1);
-        margin: 1rem 0 1rem 0;
-    }
-
-    .post-top-section{
-        padding: 1rem;
-        border-bottom: 1px dotted var(--grey);
-    }
-
-    .post-title{
-        font-weight: bold;
-    }
-
-    .posts h2{
-        background-color: transparent;
-        color: var(--off-white);
-        padding-left: 1rem;
-        margin: 0.5rem 0 0.5rem 0;
-    }
-
-    .main-container li{
-        border: var(--border-1);
-        padding: 5px 5px 1px 5px;
-        display: flex;
-    }
-
-    @media screen and (max-width: 696px){
-        .posts{
-            border-width: 1px 0 1px 0;
-        }        
-
-        .main-container li{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border: none;
-            border-bottom: var(--border-1);
-            padding-bottom: 0.5rem;
-        }
-
-        li img{
-            width: 13rem;
-        }
-    }
-</style>
-
 <div class="main-container">
     <h1>{{ .Title }}</h1>
     <hr>
     {{ .Content }}
-    <ul>
+    <ul class="page-collection">
         {{ range .Pages }}
         {{ $type := .Param "type" }}
         {{ $date := .Date.Format "Jan 02 2006" }}
-        {{ $lastmod := .Lastmod.Format "Jan 02 2006" }}
-        
+        {{ $lastmod := .Lastmod.Format "Jan 02 2006" }}   
             {{ if eq $type "post" }}
-                <div class="posts">
-                    <div class="post-top-section">
-                    <span class="post-title">{{ .Title }}</span>
-                    <span class="item-stats">
-                        Published {{ $date }}
-                        <!-- If "date" (Published) is different from "lastmod" (Last Modified) display last modified info, if not, display nothing -->
-                        {{ if ne $date $lastmod }}
-                            | Last Modified {{ $lastmod }}
-                        {{ end }}
-                    </span>
-                    </div>
-                    <span>{{ .Content }}</span>
-                </div>
-            {{ else }}
                 <li>
+                    <div class="post">
+                        <div class="post-top-section">
+                            <!-- Display post title -->
+                            <span class="post-title">{{ .Title }}</span>
+                            <span class="item-stats">
+                                Published {{ $date }}
+                                <!-- If "date" (Published) is different from "lastmod" (Last Modified) display last modified info, if not, display nothing -->
+                                {{ if ne $date $lastmod }}
+                                    | Last Modified {{ $lastmod }}
+                                {{ end }}
+                            </span>
+                        </div>
+                        <!-- Display contents of post -->
+                        <span>{{ .Content }}</span>
+                    </div>
+                </li>
+            {{ else if or (eq $type "blog") (eq $type "artwork") }}
+                <li class="page-item">
                     <!-- Check if "cover" is available on frontmatter, if not, display chickens -->
-                    {{ if .Params.cover }}
-                        {{  with resources.GetRemote .Params.cover  }}
-                            {{ with . }}
+                    <div class="item-cover-container">
+                        {{ if .Params.cover }}
+                            {{ with resources.GetRemote .Params.cover }}
                                 <picture>
                                     {{ $desktop := .Resize "100x webp q70" }}
                                     {{ $mobile := .Resize "208x webp q70" }}
@@ -118,44 +52,51 @@
                                     <img src="{{ $desktop.RelPermalink }}" alt="" width="{{ $desktop.Width }}" height="{{ $desktop.Height }}" loading="lazy">
                                 </picture>
                             {{ end }}
+                        {{ else }}
+                            <img class="chickens-img" src='{{ relURL "images/chicken.webp" }}' title="Error loading image." alt="" loading="lazy">
                         {{ end }}
-                    {{ else }}
-                        <img src='{{ relURL "images/chicken.webp" }}' alt="" width="100px" height="100px">
-                    {{ end }}
+                    </div>
                     <div class="item-details">
                         <a class="item-title" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-                        <!-- Check if "description" is available on frontmatter, if not, display summary  -->
-                        {{ if .Description }}
-                            <span class="item-cap">{{ .Description }}</span>
-                        {{ else }}
-                        <span class="item-cap">{{ .Summary }}</span>
-                        {{ end }}
-                            <!-- Check if frontmatter type matches "artwork", displays information about file -->
+                        <!-- Check if "description" is available on frontmatter, if not, display summary  --> 
+                            <span class="item-caption">{{ if .Description }}{{ .Description }}{{ else }}{{ .Summary }}{{ end }}</span>
+                            <!-- Check if frontmatter type matches "artwork", displays information about page -->
                             {{ if eq $type "artwork" }}
-                                {{ range .Params.art_tags }}
-                                    <a class="tags" href='/art_tags/{{ . | urlize }}'>#{{ . }}</a>
-                                {{ end }}
                                 <span class="item-stats">
-                                    Created {{ .Date | time.Format ":date_medium" }}
+                                    <span>
+                                        {{ range .Params.art_tags }}
+                                            <a class="tags" href='/art_tags/{{ . | urlize }}'>#{{ . }}</a>
+                                        {{ end }}
+                                    </span>
+                                    <span>Created {{ .Date | time.Format ":date_medium" }}</span>
                                 </span>
-                            <!-- Check if frontmatter type matches "blog", displays information about file -->
+                            <!-- Check if frontmatter type matches "blog", displays information about page -->
                             {{ else if eq $type "blog" }}
-                                {{ range .Params.blog_tags }}
-                                    <a class="tags" href='/blog_tags/{{ . | urlize }}'>#{{ . }}</a>
-                                {{ end }}
                                 <span class="item-stats">
-                                    Published {{ $date }}
-                                    <!-- If "date" (Published) is different from "lastmod" (Last Modified) display last modified info, if not, display nothing -->
-                                    {{ if ne $date $lastmod }}
-                                        | Last Modified {{ $lastmod }}
-                                    {{ end }}
+                                    <span>
+                                        {{ range .Params.blog_tags }}
+                                            <a class="tags" href='/blog_tags/{{ . | urlize }}'>#{{ . }}</a>
+                                        {{ end }}
+                                    </span>
+                                    <span>
+                                        Published {{ $date }}
+                                        <!-- If "date" (Published) is different from "lastmod" (Last Modified) display last modified info, if not, display nothing -->
+                                        {{ if ne $date $lastmod }}
+                                            | Last Modified {{ $lastmod }}
+                                        {{ end }}
+                                    </span>
                                 </span>
                             <!-- If frontmatter type doesn't match any of the specified values, display chickens -->
                             {{ else }}
-                                <i style="color: var(--grey);">nothing here but us chickens!</i>
+                                <span class="chickens-text">nothing here but us chickens!</span>
                             {{ end }}
                         </span>
                     </div>
+                </li>
+            {{ else }}
+                <li class="page-item">
+                    <div class="item-cover-container"><img class="chickens-img" src='{{ relURL "images/chicken.webp" }}' title="Error loading image." alt=""></div>
+                    <div class="item-details"><span class="chickens-text">nothing here but us chickens!</span></div>
                 </li>
             {{ end }}
         {{ end }}

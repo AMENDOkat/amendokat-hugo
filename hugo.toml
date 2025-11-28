@@ -9,7 +9,6 @@ enableGitInfo = true
 enableRobotsTXT = true
 
 [markup]
-  defaultMarkdownHandler = 'goldmark'
   [markup.goldmark.renderHooks]
       [markup.goldmark.renderHooks.image]
         useEmbedded = 'fallback'
@@ -32,8 +31,8 @@ enableRobotsTXT = true
   weight = 2
 
   [[menus.nav]]
-  name = 'my work'
-  pageRef = '/my_work'
+  name = 'art gallery'
+  pageRef = '/art_gallery'
   weight = 3
 
   [[menus.nav]]

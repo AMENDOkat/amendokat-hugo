@@ -21,6 +21,8 @@
         display: flex;
         flex-direction: column;
         text-align: center;
+        margin-top: 2rem;
+        max-width: 12rem;
     }
 </style>
 
@@ -37,13 +39,13 @@
                 {{ if .Params.cover }}
                     {{ with resources.GetRemote .Params.cover }}
                         <a href="{{ .RelPermalink }}">
-                            {{ with .Resize "200x webp q100" }}
-                                <img src="{{ .RelPermalink }}" alt="{{ $alt }}" width="{{ .Width }}" height="{{ .Height }}" loading="lazy">
+                            {{ with .Resize "200x webp q85" }}
+                                <img src='{{ .RelPermalink }}' alt="{{ $alt }}" width="{{ .Width }}" height="{{ .Height }}" loading="lazy">
                             {{ end }}
                         </a>
                     {{ end }}
                 {{ else }}
-                    <img src='{{ relURL "images/chicken.webp" }}' alt="">
+                    <img src='{{ relURL "images/chicken.webp" }}' alt="" loading="lazy">
                 {{ end }}
                 
                 <!-- Display and link page title -->
@@ -53,16 +55,13 @@
                 <span>{{ .Date | time.Format ":date_medium" }}</span>
 
                 <!-- Display and link taxonomy pages for frontmatter "art_tags" -->
-                <span class="page-tags">
+                <!-- <span class="page-tags">
                     {{ range .Params.art_tags }}
                         <a class="tags-small" href='/art_tags/{{ . | urlize }}'>#{{ . }}</a>
                     {{ end }}
-                </span>
+                </span> -->
             </div>
         {{ end }}
     </div>
 </div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js" integrity="sha512-b4rL1m5b76KrUhDkj2Vf14Y0l1NtbiNXwV+SzOzLGv6Tz1roJHa70yr8RmTUswrauu2Wgb/xBJPR8v80pQYKtQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script>lightGallery(document.querySelector('.gallery'));</script>
 {{ end }}
