@@ -1,5 +1,6 @@
 ---
 date: 2024-06-05
+lastmod:
 title: startrix :3
 description: the great and powerful starlight speaks to her assistant (trixie borrowed glimz her clothes)
 layout: media_page

@@ -11,7 +11,7 @@ bluesky: https://bsky.app/profile/amendokat.neocities.org/post/3lbrvo6opcs22
 tumblr: 
 derpibooru: 
 portfolio: false
-exclusive: 
+exclusive: false
 art_tags: ["my little pony", "pony", "cozy glow"]
 ---
 Complete comic on [Bluesky](https://bsky.app/profile/amendokat.neocities.org/post/3lbrvo6opcs22)

@@ -1,0 +1,61 @@
+<style>
+.page-figure{
+    text-align: center;
+    margin: 1rem 0 1rem 0;
+    word-wrap: break-word;
+    width: 20rem;
+    max-width: 80vw;
+    max-height: 19rem;
+}
+
+.page-image{
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+    max-height: 15rem;
+    background-color: #373737;
+}
+
+.page-caption{
+    font-style: italic
+}
+</style>
+<!-- 
+ARGUMENTS FOR FIGURE SHORTCODE
+src / image source. only accepts page bundle structure
+link / url for turning figure into a link
+title / text for title and aria-label
+alt / image alt text
+caption / image caption
+-->
+
+{{ $src := .Get "src" }}
+{{ if $src }}
+    <figure class="page-figure">
+        {{ if .Get "link" }}<a {{ if .Get "title" }} title="{{ .Get "title" }}" aria-label="{{ .Get "title" }}" {{ end }} href="{{ .Get "link" }}">{{ end }}
+            {{ $imgLocal := .Page.Resources.GetMatch $src }}
+            {{ $localFallback := $imgLocal.Resize "320x jpg" }}
+            <img
+            srcset="
+            {{ if gt $imgLocal.Width 320 }}{{ $localSmall := $imgLocal.Resize "320x webp" }}{{ $localSmall.RelPermalink }} 320w{{ end }},
+            {{ if gt $imgLocal.Width 600 }}{{ $localMedium := $imgLocal.Resize "600x webp" }}{{ $localMedium.RelPermalink }} 600w{{ end }}
+            "
+            sizes="
+            (max-width: 641px) 320px,
+            (min-width: 642px) 600px
+            " 
+            src="{{ $localFallback.RelPermalink }}" 
+            width="{{ $localFallback.Width }}"
+            height="{{ $localFallback.Height }}"
+            class="page-image"
+            loading="lazy"
+            {{ if .Get "alt" }}alt="{{ .Get "alt" }}"{{ end }}
+            >
+        {{ if .Get "caption" }}<figcaption class="page-caption">{{ .Get "caption" }}</figcaption>{{ end }}
+        {{ if .Get "link" }}</a>{{ end }}
+    </figure>
+{{ else }}
+    <figure class="page-figure">
+        <img class="chickens-img page-image" src='{{ relURL "images/chicken.webp" }}' title="Error loading image." alt="" loading="lazy" width="100px" height="100px">
+        <figcaption class="page-caption"><span class="chickens-text">nothing here but us chickens!</span></figcaption>
+    </figure>
+{{ end }}

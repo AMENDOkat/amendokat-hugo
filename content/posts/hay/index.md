@@ -1,6 +1,6 @@
 ---
-date: '2025-11-10T17:24:37-03:00'
-lastmod: ''
+date: 2025-11-10T17:24:37-03:00
+lastmod:
 title: hay there!
 description: My neighew (neigh + new) blog.
 type: post

@@ -11,6 +11,6 @@ bluesky:
 tumblr: 
 derpibooru: https://derpibooru.org/images/3146872
 portfolio: false
-exclusive: 
+exclusive: false
 art_tags: ["my little pony", "pony", "cozy glow"]
 ---

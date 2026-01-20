@@ -1,5 +1,6 @@
 ---
 date: 2024-07-24
+lastmod: 
 title: Frost Knight
 description: This is my cozyhearts fanchild for the G5 AU I'm writing, his name is Frost Knight and he's UGLY /affectionate. About the mask, there's an in-story reason for it, but just know that he spends a lot of time wearing it.
 layout: media_page

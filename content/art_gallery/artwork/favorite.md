@@ -11,7 +11,7 @@ bluesky:
 tumblr: 
 derpibooru: https://derpibooru.org/images/3206642
 portfolio: false
-exclusive: 
+exclusive: false
 art_tags: ["my little pony", "pony", "cozy glow"]
 ---
 This is, I think, my favorite drawing I ever made. So much so it's the banner in every profile I have (and this site ofc)!

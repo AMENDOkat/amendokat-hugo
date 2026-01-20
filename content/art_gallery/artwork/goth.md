@@ -11,7 +11,7 @@ bluesky:
 tumblr: https://www.tumblr.com/amendokat/761354158973583360/goth-flurry-heartflurry-heart-rebellious-phase
 derpibooru: 
 portfolio: false
-exclusive: 
+exclusive: false
 art_tags: ["my little pony", "pony"]
 ---
 Lyrics are from Scary Bitches's [You'll End Up Looking Like the Scary Bitches](https://www.youtube.com/watch?v=5xaf4cCEmBY)

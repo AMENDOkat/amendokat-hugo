@@ -1,5 +1,6 @@
 ---
 date: 2024-08-04
+lastmod:
 title: Cozyheartties
 description: you see these two stupid kitties sleeping in your house like this. what do you do.
 layout: media_page

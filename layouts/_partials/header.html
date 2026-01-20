@@ -1,7 +1,28 @@
-<span class="title-decoration-desktop">⋆ ✧ ☆</span><span class="title-decoration-mobile">⋆ ☆ ⋆</span>
+{{ $banner := resources.Get "img/banner.webp" }}
+{{ $bannerDesktop := $banner.Crop "1500x180 Center webp drawing" }}
+{{ $bannerMobile := $bannerDesktop.Resize "700x" }}
+<span class="title-decoration-desktop">&#x22C6;  &#x2727; &#x2606; </span><span class="title-decoration-mobile">&#x22C6;  &#x2606;  &#x22C6; </span>
 <span>AMENDOKAT</span>
-<span class="title-decoration-desktop">☆ ✧ ⋆</span><span class="title-decoration-mobile">⋆ ☆ ⋆</span>
-<a><div class="banner"></div></a>
+<span class="title-decoration-desktop">&#x2606;  &#x2727; &#x22C6; </span><span class="title-decoration-mobile">&#x22C6;  &#x2606;  &#x22C6; </span>
+    <a href="#" title="Go to homepage.">
+        <picture>
+            <source 
+            type="image/webp"
+            media="(max-width: 641px)"
+            srcset="{{ $bannerMobile.RelPermalink }}"
+            width="{{ $bannerMobile.Width }}"
+            height="{{ $bannerMobile.Height }}"
+            />
+            <source 
+            type="image/webp"
+            media="(min-width: 642px)"
+            srcset="{{ $bannerDesktop.RelPermalink }}"
+            width="{{ $bannerDesktop.Width }}"
+            height="{{ $bannerDesktop.Height }}"
+            />
+            <img src="{{ $bannerDesktop.RelPermalink }}" alt="Site banner." width="{{ $bannerDesktop.Width }}" height="{{ $bannerDesktop.Height }}" style="background-color: #373737;">
+        </picture>
+    </a>
 </div>
 <nav>
     <ul>

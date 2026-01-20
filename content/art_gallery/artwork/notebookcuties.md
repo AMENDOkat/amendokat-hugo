@@ -1,5 +1,6 @@
 ---
 date: 2023-05-20 
+lastmod: 
 title: Cozyhearts Sketches
 description: 
 layout: media_page
@@ -10,6 +11,6 @@ bluesky: https://bsky.app/profile/amendokat.neocities.org/post/3lbuulqsba22z
 tumblr: 
 derpibooru: https://derpibooru.org/images/3146868
 portfolio: false
-exclusive: 
+exclusive: false
 art_tags: ["my little pony", "pony", "cozy glow", "cozyhearts"]
 ---

@@ -11,7 +11,7 @@ bluesky:
 tumblr: 
 derpibooru: https://derpibooru.org/images/3229426
 portfolio: false
-exclusive: 
+exclusive: false
 art_tags: ["my little pony", "pony", "cozy glow"]
 ---
 Modified lyrics from [Everything Stays](https://www.youtube.com/watch?v=Lr0UOKd1dd0)

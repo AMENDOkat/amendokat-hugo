@@ -8,7 +8,6 @@
 
         {{ .ReadingTime }} min read |
         Published {{ $date }}
-                <!-- If "date" (Published) is different from "lastmod" (Last Modified) display last modified info, if not, display nothing -->
         {{ if ne $date $lastmod }}
             | Last Modified {{ $lastmod }}
         {{ end }}
@@ -35,6 +34,5 @@
         </div>
     {{ else }}
     {{ end }}
-  
 </div>
 {{ end }}

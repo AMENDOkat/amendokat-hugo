@@ -17,15 +17,26 @@
         width: 15rem;
     }
 
-    .page-link{
+    .page-item{
         display: flex;
         flex-direction: column;
         text-align: center;
         margin-top: 2rem;
         max-width: 12rem;
     }
-</style>
 
+    .page-link{ 
+        margin-top: 0.5rem;     
+    }
+
+    .page-cover:hover{
+        cursor: zoom-in;
+    }
+
+    .page-cover img{
+        background-color: #373737;
+    }
+</style>
 
 <div class="main-container">
     <h1>{{ .Title }}</h1>
@@ -33,33 +44,20 @@
     {{ .Content }}
     <div class="gallery">
         {{ range .Pages }}
-        {{ $alt := .Params.alt }}
-            <div class="page-link">
-                <!-- Check if "cover" is available on frontmatter, if not, display chickens -->
+            <div class="page-item">
                 {{ if .Params.cover }}
                     {{ with resources.GetRemote .Params.cover }}
-                        <a href="{{ .RelPermalink }}">
+                        <a href="{{ .RelPermalink }}" class="page-cover">
                             {{ with .Resize "200x webp q85" }}
-                                <img src='{{ .RelPermalink }}' alt="{{ $alt }}" width="{{ .Width }}" height="{{ .Height }}" loading="lazy">
+                                <img src='{{ .RelPermalink }}' alt="" width="{{ .Width }}" height="{{ .Height }}" loading="lazy">
                             {{ end }}
                         </a>
                     {{ end }}
                 {{ else }}
                     <img src='{{ relURL "images/chicken.webp" }}' alt="" loading="lazy">
                 {{ end }}
-                
-                <!-- Display and link page title -->
-                <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-
-                <!-- Display date frontmatter -->
+                <a  class="page-link" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
                 <span>{{ .Date | time.Format ":date_medium" }}</span>
-
-                <!-- Display and link taxonomy pages for frontmatter "art_tags" -->
-                <!-- <span class="page-tags">
-                    {{ range .Params.art_tags }}
-                        <a class="tags-small" href='/art_tags/{{ . | urlize }}'>#{{ . }}</a>
-                    {{ end }}
-                </span> -->
             </div>
         {{ end }}
     </div>

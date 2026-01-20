@@ -47,6 +47,7 @@
 
     .img-display{
         max-width: 45vw;
+        background-color: #373737;
     }
 
 @media screen and (max-width: 696px){
@@ -63,7 +64,6 @@
         {{ $pages := .CurrentSection.Pages }}
         {{ with $pages.Next . }}
             <div class="page-controls-content">
-                <!-- <span>{{ .Title }}</span> -->
                 <a href="{{ .RelPermalink }}">&#11164; Next</a>
             </div>
         {{ end }}
@@ -73,12 +73,10 @@
         </span>
         {{ with $pages.Prev . }}
             <div class="page-controls-content">
-                <!-- <span>{{ .Title }}</span> -->
                 <a href="{{ .RelPermalink }}">Previous &#11166;</a>
             </div>
         {{ end }}
     </div>
-
     <div class="page-info">
         {{ with .Params }}
             {{ $alt := .alt }}
@@ -91,7 +89,6 @@
                 {{ else }}
                     <img src='{{ relURL "images/chicken.webp" }}' alt="">
                 {{ end }}
-
             <ul>
                 <li>
                     <div class="information-title"><i class="fa-solid fa-file-lines"></i> Description</div>
@@ -107,34 +104,21 @@
                 </li>
                 <li>
                     <div class="information-title"><i class="fa-solid fa-link"></i> Links</div>
-                    {{ with .bluesky }}
-                    <div class=""><i class="fa-brands fa-bluesky"></i><a href="{{ . }}"></i>bluesky</a></div>
-                    {{ end }}
-
-                    {{ with .tumblr }}
-                        <div class=""><i class="fa-brands fa-tumblr"></i><a href="{{ . }}">tumblr</a></div>
-                    {{ end }}
-                    
-                    {{ with .derpibooru }}
-                        <div class=""><i class="fa-solid fa-horse-head"></i><a href="{{ . }}">derpibooru</a></div>
-                    {{ end }}
-
-                    {{ if eq .exclusive true }}
-                        <i>Website exclusive.</i> 
-                    {{ end }}
+                    {{ with .bluesky }}<div class=""><i class="fa-brands fa-bluesky"></i><a href="{{ . }}"></i>bluesky</a></div>{{ end }}
+                    {{ with .tumblr }}<div class=""><i class="fa-brands fa-tumblr"></i><a href="{{ . }}">tumblr</a></div>{{ end }}
+                    {{ with .derpibooru }}<div class=""><i class="fa-solid fa-horse-head"></i><a href="{{ . }}">derpibooru</a></div>{{ end }}
+                    {{ if eq .exclusive true }}<i>Website exclusive.</i> {{ end }}
                 </li>
                 <li>
                     <div class="information-title"><i class="fa-solid fa-tag"></i> Tags</div>
                     {{ range .art_tags }}
-                    <a class="tags" href='/art_tags/{{ . | urlize }}'>{{ . }}</a>
+                        <a class="tags" href='/art_tags/{{ . | urlize }}'>{{ . }}</a>
                     {{ end }}
                 </li>
             </ul>
         {{ end }}
     </div>
-
 {{ .Content }}
-
 </div>
 
 {{ end }}

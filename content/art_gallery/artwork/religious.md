@@ -1,5 +1,6 @@
 ---
 date: 2023-10-15
+lastmod:
 title: The Lamb of God
 description: You always said how you loved dogs, I don't know if I count, but I'm trying my best....
 layout: media_page

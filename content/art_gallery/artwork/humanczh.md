@@ -11,6 +11,6 @@ bluesky:
 tumblr: 
 derpibooru: https://derpibooru.org/images/3080204
 portfolio: false
-exclusive: 
+exclusive: false
 art_tags: ["my little pony", "human", "cozy glow", "cozyhearts"]
 ---

@@ -1,6 +1,6 @@
 ---
-date: '2025-11-22T22:58:41-03:00'
-lastmod: ''
+date: 2025-11-22T22:58:41-03:00
+lastmod: 
 title: O XANDÃO PEGOU !!!
 description: 
 type: post

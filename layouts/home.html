@@ -41,6 +41,8 @@
     /* oldweb buttons */
     .buttons img{
         margin: 0 0.1rem 0 0.1rem;
+        width: 88px;
+        height: 31px;
     }
 
     @media screen and (max-width: 696px){
@@ -57,6 +59,15 @@
 <div class="main-container">
     <h1>{{ .Title }}</h1>
     <hr>
+    <h2>Before you enter...</h2>
+    <b>This site:</b>
+    <ul>
+        <li>Is 16+</li>
+        <li>Uses Javascript</li>
+        <li>Is multilingual (pt-br, eng), though the grand majority of content is in english.</li>
+        <li>Is missing certain accessibility features. Screen reader users, users with a sensibility to flashing images, and others, please be aware of this before proceeding.</li>
+    </ul>
+    <hr>
     <div class="warning">
         <img class="warning-construction" src="images/under_construction.gif" alt="">
         <div class="wip">
@@ -70,13 +81,13 @@
     {{ .Content }}
 
     <div class="buttons">
-        <img src="images/decorations/paws.gif" alt="" loading="lazy">
-        <img src="images/decorations/html-dream.gif" alt="" loading="lazy">
-        <a href="https://www.firefox.com/en-US/?redirect_source=mozilla-org"><img src="images/decorations/firefoxn00bs.gif" alt="" loading="lazy"></a>
-        <a href="https://neocities.org/"><img src="images/decorations/neocities1.gif" alt="" loading="lazy"></a>
-        <img src="images/decorations/png.png" alt="" loading="lazy">
-        <img src="images/decorations/share.jpg" alt="" loading="lazy">
-        <img src="images/decorations/responsivesite.jpg" alt="" loading="lazy">
+        <img src="images/decorations/paws.gif" alt="Made with my own two paws." loading="lazy">
+        <img src="images/decorations/html-dream.gif" alt="I dream in html." loading="lazy">
+        <a href="https://www.firefox.com/en-US/?redirect_source=mozilla-org"><img src="images/decorations/firefoxn00bs.gif" alt="Get Firefox, noobs!" loading="lazy"></a>
+        <a href="https://neocities.org/"><img src="images/decorations/neocities1.gif" alt="Neocities, the web is yours." loading="lazy"></a>
+        <img src="images/decorations/png.png" alt="World Wide Web, connecting people since 1991." loading="lazy">
+        <img src="images/decorations/share.jpg" alt="It's good to share." loading="lazy">
+        <img src="images/decorations/responsivesite.jpg" alt="Responsive website." loading="lazy">
     </div>
 
     <h2>What's new?</h2>
@@ -100,17 +111,14 @@
             <li>
                 <div class="post">
                     <div class="post-top-section">
-                        <!-- Display post title -->
                         <span class="post-title">{{ .Title }}</span>
                         <span class="item-stats">
                             Published {{ $date }}
-                            <!-- If "date" (Published) is different from "lastmod" (Last Modified) display last modified info, if not, display nothing -->
                             {{ if ne $date $lastmod }}
                                 | Last Modified {{ $lastmod }}
                             {{ end }}
                         </span>
                     </div>
-                    <!-- Display contents of post -->
                     <span>{{ .Content }}</span>
                 </div>
             </li>
@@ -180,12 +188,12 @@
         <li>Reporting bugs and suggesting new features for me to add - <a href="about_me/#contact-me">Contact me</a> or use the <a href="https://github.com/AMENDOkat/amendokat">Github repository</a>;</li>
         <li>Adding my button to your site or just spreading the link around;</li>
         <li>Sending me a tip on <a href="https://ko-fi.com/amendokat">ko-fi</a>.</li>
-    <a href="https://ko-fi.com/amendokat"><img src="images/decorations/coffee.gif" alt=""></a>
+    </ul>
+    <a href="https://ko-fi.com/amendokat"><img src="images/decorations/coffee.gif" alt="Link to my Ko-fi." loading="lazy"></a>
 
     <h2>add my button to your site!</h2>
     <p>If you do lmk so I can add yours here too!! let's be web neighbours :D</p>
     <img src="images/amendokat.webp" alt="" loading="lazy"><br>
-    <textarea name="My website button" id="button-link" readonly><a href="https://amendokat.neocities.org/"><img src="images/amendokat.webp" alt="" loading="lazy"></a></textarea><br>
-    <button onclick="copyWebsiteButton()">copy to clipboard</button>
+    <button title="Copy to clipboard." onclick="copyWebsiteButton()">copy to clipboard</button>
 </div>
 {{ end }}

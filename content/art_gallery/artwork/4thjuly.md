@@ -1,5 +1,6 @@
 ---
 date: 2025-07-04
+lastmod:
 title: Happy 4th of July!!!
 description: Happy July 4 for all my 'murican ponies out there ♥️ here is my happy july 4 piece ♥️ it took a lot of work so i hope you guys like it 
 layout: media_page

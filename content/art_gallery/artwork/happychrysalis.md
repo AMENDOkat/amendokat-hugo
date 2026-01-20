@@ -1,5 +1,6 @@
 ---
 date: 2025-12-25
+lastmod:
 title: Happy Chrysalis!! (i think)
 description: Got a hearts warming- chrysalis (??) card on my mail today. I have no idea who these people are. Should I be worried?
 layout: media_page
@@ -10,6 +11,6 @@ bluesky:
 tumblr: https://www.tumblr.com/amendokat/737716505836421120/happy-chrysalis-i-think
 derpibooru: https://derpibooru.org/images/3273241
 portfolio: false
-exclusive: 
+exclusive: false
 art_tags: ["my little pony", "pony", "cozy glow"]
 ---

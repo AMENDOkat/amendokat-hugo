@@ -1,6 +1,5 @@
-<a href="{{ .Destination | safeURL }}" {{with .Text }} title="{{ . }}" {{ end }} >
-  {{ .Text | safeHTML }}
+{{ $externalLink :=  strings.HasPrefix .Destination "https" }}
+<a href="{{ .Destination | safeURL }}" title="{{ .Text }}"{{ if $externalLink }}rel="external"{{ end }}>
+{{ .Text }}
 </a>
-{{ if strings.HasPrefix .Destination "https" }}
-  <sup title="External link" class="external-link-marker">&#10138;</sup>
-{{ end }}
+{{ if $externalLink }}<sup title="External link" class="external-link-marker">&#10138;</sup>{{ end }}

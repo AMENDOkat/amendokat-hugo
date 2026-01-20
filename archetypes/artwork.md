@@ -11,6 +11,6 @@ bluesky:
 tumblr: 
 derpibooru: 
 portfolio: false
-exclusive: 
+exclusive: false
 art_tags: ["tag1", "tag2", "tag3"]
 ---

@@ -7,7 +7,6 @@
     {{ if eq $type "post" }}
         <div class="page-controls">
             {{ $pages := .CurrentSection.Pages }}
-
             {{ with $pages.Prev . }}
                 <div class="page-controls-content">
                     <span>{{ .Title }}</span>
@@ -23,6 +22,5 @@
         </div>
     {{ else }}
     {{ end }}
-  
 </div>
 {{ end }}

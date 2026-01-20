@@ -11,7 +11,7 @@ bluesky:
 tumblr: https://www.tumblr.com/amendokat/735191874408710144/cozy-glow-x-shirley-temple-thing-i-made-in
 derpibooru: https://derpibooru.org/images/3253308
 portfolio: false
-exclusive: 
+exclusive: false
 art_tags: ["commission", "my little pony", "pony", "cozy glow"]
 ---
 Lyric's from Shirley Temple's [Fifth Avenue](https://www.youtube.com/watch?v=MuS3gNQcaAk&pp=ygUbZmlmdGggYXZlbnVlIHNoaXJsZXkgdGVtcGxl)

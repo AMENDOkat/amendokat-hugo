@@ -12,7 +12,6 @@
                 <li>
                     <div class="post">
                         <div class="post-top-section">
-                            <!-- Display post title -->
                             <span class="post-title">{{ .Title }}</span>
                             <span class="item-stats">
                                 Published {{ $date }}
@@ -22,13 +21,11 @@
                                 {{ end }}
                             </span>
                         </div>
-                        <!-- Display contents of post -->
                         <span>{{ .Content }}</span>
                     </div>
                 </li>
             {{ else if or (eq $type "blog") (eq $type "artwork") }}
                 <li class="page-item">
-                    <!-- Check if "cover" is available on frontmatter, if not, display chickens -->
                     <div class="item-cover-container">
                         {{ if .Params.cover }}
                             {{ with resources.GetRemote .Params.cover }}
@@ -49,7 +46,7 @@
                                     width="{{ $desktop.Width }}"
                                     height="{{ $desktop.Height }}"
                                     />
-                                    <img src="{{ $desktop.RelPermalink }}" alt="" width="{{ $desktop.Width }}" height="{{ $desktop.Height }}" loading="lazy">
+                                    <img src="{{ $desktop.RelPermalink }}" alt="" width="{{ $desktop.Width }}" height="{{ $desktop.Height }}" loading="lazy" style="background-color: #373737;">
                                 </picture>
                             {{ end }}
                         {{ else }}
@@ -58,9 +55,8 @@
                     </div>
                     <div class="item-details">
                         <a class="item-title" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-                        <!-- Check if "description" is available on frontmatter, if not, display summary  --> 
                             <span class="item-caption">{{ if .Description }}{{ .Description }}{{ else }}{{ .Summary }}{{ end }}</span>
-                            <!-- Check if frontmatter type matches "artwork", displays information about page -->
+                            <!-- Check if frontmatter type matches "artwork", else check if it matches "blog", if it matches none, display chickens -->
                             {{ if eq $type "artwork" }}
                                 <span class="item-stats">
                                     <span>
@@ -70,7 +66,6 @@
                                     </span>
                                     <span>Created {{ .Date | time.Format ":date_medium" }}</span>
                                 </span>
-                            <!-- Check if frontmatter type matches "blog", displays information about page -->
                             {{ else if eq $type "blog" }}
                                 <span class="item-stats">
                                     <span>
@@ -80,13 +75,11 @@
                                     </span>
                                     <span>
                                         Published {{ $date }}
-                                        <!-- If "date" (Published) is different from "lastmod" (Last Modified) display last modified info, if not, display nothing -->
                                         {{ if ne $date $lastmod }}
                                             | Last Modified {{ $lastmod }}
                                         {{ end }}
                                     </span>
                                 </span>
-                            <!-- If frontmatter type doesn't match any of the specified values, display chickens -->
                             {{ else }}
                                 <span class="chickens-text">nothing here but us chickens!</span>
                             {{ end }}

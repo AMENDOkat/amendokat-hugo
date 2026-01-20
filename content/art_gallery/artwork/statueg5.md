@@ -1,5 +1,6 @@
 ---
 date: 2024-07-10
+lastmod:
 title: Discord and The Statue.
 description: Discord and The Statue.
 layout: media_page

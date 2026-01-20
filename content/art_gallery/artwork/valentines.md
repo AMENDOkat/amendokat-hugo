@@ -1,5 +1,6 @@
 ---
 date: 2024-02-15
+lastmod:
 title: The Valentines
 description: A bit late but who cares, happy valentine's day everypony <3
 layout: media_page
@@ -10,6 +11,6 @@ bluesky:
 tumblr: https://www.tumblr.com/amendokat/742518679447666688/a-bit-late-but-who-cares-happy-valentines-day
 derpibooru: 
 portfolio: false
-exclusive: 
+exclusive: false
 art_tags: ["my little pony", "pony", "cozy glow", "cozyhearts"]
 ---

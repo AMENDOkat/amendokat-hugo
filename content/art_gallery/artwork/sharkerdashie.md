@@ -1,5 +1,6 @@
 ---
 date: 2024-08-31
+lastmod:
 title: Sharker Dashie
 description: sharker dashie art trade i made with @/appledash3r_ on X
 layout: media_page
@@ -10,7 +11,7 @@ bluesky:
 tumblr: https://www.tumblr.com/amendokat/760447223856349184/sharker-dashiesharker-dashie-art-trade-i-made-with
 derpibooru: 
 portfolio: false
-exclusive: 
+exclusive: false
 art_tags: ["my little pony", "pony"]
 ---
 I have no idea if that's still their username. As a matter of fact, i don't even remember what I got in exchange for my drawing.

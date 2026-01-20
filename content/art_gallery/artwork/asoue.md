@@ -1,5 +1,6 @@
 ---
 date: 2024-08-24 
+lastmod: 
 title: ASOUE Tribute
 description: i fucking love esmé
 layout: media_page
@@ -10,6 +11,6 @@ bluesky:
 tumblr: https://www.tumblr.com/amendokat/759817937133633536/asoue-tributei-fucking-love-esm%C3%A9
 derpibooru: 
 portfolio: false
-exclusive: 
+exclusive: false
 art_tags: ["human"]
 ---

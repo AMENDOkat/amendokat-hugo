@@ -1,5 +1,6 @@
 ---
 date: 2024-08-03 
+lastmod:
 title: Greed
 description: this is the kind of greed they spoke about in the bible
 layout: media_page

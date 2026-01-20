@@ -1,5 +1,6 @@
 ---
 date: 2024-06-08
+lastmod:
 title: Punk LOD
 description: the lod if they made an album cover for their shitty hardcore punk garage band
 layout: media_page
