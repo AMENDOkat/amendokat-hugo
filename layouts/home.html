@@ -100,13 +100,6 @@
 
     <p><i>To see what's next visit the <a href="site/#to-do-list">To do list</a></i></p>
 
-    <!-- ASSIGN VARIABLES FOR LISTINGS -->
-     <!-- this date variable is getting assigned here and keeping that value isntead of updating for each page -->
-      <!-- also last modified is behaving weirdly and showing the last modified date of the entire site. every time we rebuild the site, hugo turns our md into html and that html creation date is the lastmod displayed. lastmod now has to be added manually -->
-       <!-- write this shit on obsidian please -->
-    {{ $date := .Date.Format "Jan 02 2006" }} 
-    {{ $lastmod := .Lastmod.Format "Jan 02 2006" }}
-
     <!-- MOST RECENT POST -->
     <h2>latest from /posts/</h2>
     <ul class="page-collection">
@@ -116,6 +109,9 @@
                     <div class="post-top-section">
                         <span class="post-title">{{ .Title }}</span>
                         <span class="item-stats">
+                            {{ $date := .Date.Format "Jan 02 2006" }} 
+                            {{ $lastmod := .Lastmod.Format "Jan 02 2006" }}
+
                             Published {{ $date }}
                             {{ if ne $date $lastmod }}
                                 | Last Modified {{ $lastmod }}
@@ -172,6 +168,9 @@
                                 {{ end }}
                             </span>
                             <span>
+                                {{ $date := .Date.Format "Jan 02 2006" }} 
+                                {{ $lastmod := .Lastmod.Format "Jan 02 2006" }}
+
                                 Published {{ $date }}
                                 {{ if ne $date $lastmod }}
                                     | Last Modified {{ $lastmod }}

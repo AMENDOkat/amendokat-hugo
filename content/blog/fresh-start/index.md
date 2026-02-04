@@ -18,7 +18,6 @@ So, here it is. My first post and it's not an indie web manifesto. I'm not exact
     {{< figure link="https://raccooncomic.com/post/634430277597511680/113-story-idea" src="codeidea.png" caption="Why it took two years to make a website" alt="Edited Raccoon Comic featuring two characters, a racoon and a cat. Panel one: Raccoon - So what'd you think of my code idea? Panel two: Cat - It's really good, now you just need to write the rest of it! Panel three: Cat's voice echoing in raccoon's head, he's distressed by it - Write the rest of it." >}}
 {{< /figwrapper >}}
 
-
 There's a few reasons I can list about why I wanted to make a site. They're really cool, they make me look cool, they're incredibly helpful - being an artist, it's very handy to have some place where people can see all of my art, links and information - and it's a platform I can use to publish *anything else* I want. It's a lot less pressure too. I don't expect people to read this. It's a lot of work to click on someone's website and check their blog posts - I mean, it's not, but it's more work than the grand majority of the population is willing to put in. It's not any work for people to get my posts on Bluesky, I click "post" and they just show up on their feeds. It makes me anxious when I don't get any replies or likes back because *I know* people saw them.
 
 {{< figwrapper >}}
