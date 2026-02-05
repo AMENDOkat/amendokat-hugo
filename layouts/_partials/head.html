@@ -1,7 +1,5 @@
 {{ $css := resources.Get "css/universal.css" | fingerprint | minify }}
 {{ $script := resources.Get "js/script.js" | fingerprint | minify }}
-{{ $banner := resources.Get "img/banner.webp" }}
-{{ $bannerURL := $banner.RelPermalink }}
 {{ $scriptURL := $script.RelPermalink }}
 {{ $cssURL := $css.RelPermalink }}
 {{ $logo := relURL "images/logo.svg" }}
@@ -15,7 +13,7 @@
 {{ if .Params.cover }}
 {{ with resources.GetRemote .Params.cover }}<meta property="og:image" content="{{ .RelPermalink }}">{{ end }}
 {{ else }}
-<meta property="og:image" content="{{ $bannerURL }}">
+<meta property="og:image" content="/images/banner-highres.webp">
 {{ end }}
 {{ if .Description }}
 <meta name="description" content="{{ .Description }}">
@@ -26,7 +24,8 @@
 {{ end }}
 <link rel="preload" href="/fonts/Minecraft.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{{ $cssURL }}" as="style">
-<link rel="preload" href="{{ $bannerURL }}" as="image" fetchpriority="high">
+<link rel="preload" href="/images/banner-lowres.webp" as="image" fetchpriority="high">
+<link rel="preload" href="/images/banner-highres.webp" as="image" fetchpriority="high">
 <title>{{ .Title }} &#x2605; {{ .Site.Title }}</title>
 <base href="{{ .Site.BaseURL }}">
 <link rel="icon" type="image/x-icon" href="{{ $logo }}">

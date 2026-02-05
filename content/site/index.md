@@ -34,9 +34,9 @@ If you encounter any bugs, broken links, or [chickens](/images/chicken.webp), pl
 ## Roadmap for the website; to-do list for the well acquainted
 
 ### Known bugs and issues
-- Delay on loading information page images for gallery artwork on mobile
+- Delay on loading information page images for gallery artwork
 - Mobile view looks a bit jank
-- Blog images with links can't be zoomed in
+- Blog images are really annoying to zoom in
 
 ### HIGH PRIORITIES
 Features I am either currently working on or will begin work on ASAP
@@ -47,12 +47,13 @@ Features I am either currently working on or will begin work on ASAP
 Features I will work on once I'm finished with the HP
 
 - Create reviews page
+- Make "Contact Me" page with quick info about me, how to contact me and my socials; think carrd or linktree, but here.
 - Don't like how external link markers work right now; need to review that
 - Make proper video shortcode and/or render hook
 - Create Portfolio section and migrate commission info from Carrd to Neocities
 - Rework style for "posts" so they look closer to how microblogging platforms like Bluesky display their posts; posts list currently can't render images/videos
-- On the artwork information pages, on the information part, images display HUGE. *Someone* should fix that.
-- Implement gallery lightbox / CDN for images 
+- On the artwork information pages, on the information part, images display HUGE. That's why there are none right now. *Someone* should fix that.
+- Implement gallery lightbox / CDN for images; considering jsDelivr for this
 - Re-work links page; change how text is displayed, make them similar in look to Google Search Results, add website buttons, add more links 
 
 ### LOW PRIORITIES
@@ -65,9 +66,10 @@ Features that are gonna come in a distant future or might be implemented in betw
 - Tag filtering system
 - Implement Bluesky comments integration; save comments to Google Appsheets
 - Google appsheets guestbook integration
-- Make GitHub and Nekoweb mirrors
+- Make ~~GitHub~~ and Nekoweb mirrors
 - Make custom 404 page
 - Make library page
 - Add different themes for the website; ability to switch between themes
 - Achievement system
 - Custom CSS for individual pages
+- About the author box at the end of articles (a COOL one...)
