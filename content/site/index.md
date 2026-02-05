@@ -13,7 +13,7 @@ Designed for [Firefox](https://www.firefox.com/en-US/?redirect_source=mozilla-or
 
 Originally built on Windows and later on the [Linux Mint](https://www.linuxmint.com/) OS.
 
-Open source, all code and assets are available on the [Github repository](https://github.com/AMENDOkat/amendokat). This website and all it's contents, ***except*** for my artwork which follows my own [Terms of Service](https://amendokatcommissions.carrd.co/#tos), are licensed under the [GNU GPL license v3](https://www.gnu.org/licenses/gpl-3.0.html). In short: Everyone is permitted to copy and distribute verbatim copies of it, but changing it is not allowed. If you change it, it must: Have a clear warning that it is a modified version of the original work and must be released under the same license.
+Open source, all code and assets are available on the [Github repository](https://github.com/AMENDOkat/amendokat-hugo). This website and all it's contents, ***except*** for my artwork which follows my own [Terms of Service](https://amendokatcommissions.carrd.co/#tos), are licensed under the [GNU GPL license v3](https://www.gnu.org/licenses/gpl-3.0.html). In short: Everyone is permitted to copy and distribute verbatim copies of it, but changing it is not allowed. If you change it, it must: Have a clear warning that it is a modified version of the original work and must be released under the same license.
 
 I do not support or condone the use of generative AI and it was not used during any point in the creation of this website or the content featured in it.
 
