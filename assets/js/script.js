@@ -1,5 +1,5 @@
 // HOME
 function copyWebsiteButton() {
-    navigator.clipboard.writeText('<a href="https://amendokat.neocities.org/"><img src="images/amendokat.webp" alt="" loading="lazy"></a>');
+    navigator.clipboard.writeText('<a href="https://amendokat.neocities.org/"><img src="https://amendokat.github.io/images/amendokat.webp" alt="amendokat.neocities.org" loading="lazy"></a>');
     alert("button copied! x3");
 }
